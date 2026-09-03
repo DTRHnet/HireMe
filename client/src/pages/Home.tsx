@@ -33,8 +33,14 @@ import {
   buildStudyGuidePrompt,
 } from "@shared/promptTemplates";
 import { trpc } from "@/lib/trpc";
-import { exportDocx, exportPdf, buildZipBundle } from "@/lib/exporters";
-import { Streamdown } from "streamdown";
+import {
+  exportDocx,
+  exportHtml,
+  exportPdf,
+  buildZipBundle,
+  normalizeMarkdownContents,
+  renderMarkdownHtml,
+} from "@/lib/exporters";
 
 type View = "analyze" | "history" | "settings" | "about";
 type InputState = {
@@ -126,8 +132,9 @@ function AnalysisExportMenu({ result }: { result: AnalysisResult }) {
     const isGuide = format.startsWith("guide");
     const markdown = isGuide ? result.studyGuide : result.assessment;
     const name = isGuide ? names.guide : names.assessment;
-    if (format.endsWith("markdown")) download(`${name}.md`, markdown, "text/markdown");
+    if (format.endsWith("markdown")) download(`${name}.md`, normalizeMarkdownContents(markdown), "text/markdown");
     if (format.endsWith("json")) download(`${name}.json`, JSON.stringify({ content: markdown }, null, 2), "application/json");
+    if (format.endsWith("html")) await exportHtml(`${name}.html`, markdown);
     if (format.endsWith("pdf")) await exportPdf(`${name}.pdf`, markdown);
     if (format.endsWith("docx")) await exportDocx(`${name}.docx`, markdown);
   };
@@ -139,10 +146,12 @@ function AnalysisExportMenu({ result }: { result: AnalysisResult }) {
         <option value="assessment-json">Assessment JSON</option>
         <option value="assessment-pdf">Assessment PDF</option>
         <option value="assessment-docx">Assessment DOCX</option>
+        <option value="assessment-html">Assessment HTML</option>
         <option value="guide-markdown">Study guide Markdown</option>
         <option value="guide-json">Study guide JSON</option>
         <option value="guide-pdf">Study guide PDF</option>
         <option value="guide-docx">Study guide DOCX</option>
+        <option value="guide-html">Study guide HTML</option>
         <option value="package-zip">PDF package ZIP</option>
       </select>
       <Button variant="outline" onClick={() => void exportCurrent()} disabled={blocked}>
@@ -307,7 +316,7 @@ function Results({
   result: AnalysisResult;
   onReset: () => void;
 }) {
-  const [tab, setTab] = useState("Overview");
+  const [tab, setTab] = useState("Resume Fit Assessment");
   const tabs = [
     "Overview",
     "Resume Fit Assessment",
@@ -548,9 +557,7 @@ function Results({
                   onClick={() =>
                     download(
                       `${tab === "Resume Fit Assessment" ? assessmentName : guideName}.md`,
-                      tab === "Resume Fit Assessment"
-                        ? result.assessment
-                        : result.studyGuide,
+                      normalizeMarkdownContents(tab === "Resume Fit Assessment" ? result.assessment : result.studyGuide),
                       "text/markdown"
                     )
                   }
@@ -610,15 +617,29 @@ function Results({
                 >
                   <Download size={15} /> DOCX
                 </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled={exportsBlocked}
+                  onClick={() =>
+                    void exportHtml(
+                      `${tab === "Resume Fit Assessment" ? assessmentName : guideName}.html`,
+                      tab === "Resume Fit Assessment" ? result.assessment : result.studyGuide
+                    )
+                  }
+                >
+                  <Download size={15} /> HTML
+                </Button>
               </div>
             </div>
-            <div className="rendered-markdown">
-              <Streamdown>
-                {tab === "Resume Fit Assessment"
-                  ? result.assessment
-                  : result.studyGuide}
-              </Streamdown>
-            </div>
+            <div
+              className="rendered-markdown html-report"
+              dangerouslySetInnerHTML={{
+                __html: renderMarkdownHtml(
+                  tab === "Resume Fit Assessment" ? result.assessment : result.studyGuide
+                ),
+              }}
+            />
           </article>
         )}
         {tab === "Normalized Data" && (

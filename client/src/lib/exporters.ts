@@ -23,6 +23,7 @@ type MarkdownBlock =
   | { kind: "heading"; level: number; text: string }
   | { kind: "paragraph"; text: string }
   | { kind: "list"; items: string[] }
+  | { kind: "ordered-list"; items: string[] }
   | { kind: "quote"; text: string }
   | { kind: "table"; headers: string[]; rows: string[][] }
   | { kind: "spacer" };
@@ -30,6 +31,76 @@ type MarkdownBlock =
 const ACCENT = "174B76";
 const LIGHT_ACCENT = "EAF2F8";
 const BODY = "252A2E";
+
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/<[^>]+>/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
+/** Repairs plain numbered Contents entries into links to their headings. */
+export function normalizeMarkdownContents(markdown: string): string {
+  const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
+  const headings = new Map<string, string>();
+  for (const line of lines) {
+    const heading = line.match(/^\s*#{1,6}\s+(.+?)\s*#*\s*$/);
+    if (heading) {
+      const label = heading[1].trim();
+      const target = slugify(label);
+      headings.set(label.toLowerCase(), target);
+      headings.set(label.replace(/^\d+[.)]?\s+/, "").toLowerCase(), target);
+    }
+  }
+  const contentsIndex = lines.findIndex(line => /^\s*#{1,6}\s+contents\s*#*\s*$/i.test(line));
+  if (contentsIndex < 0) return markdown;
+  let index = contentsIndex + 1;
+  while (index < lines.length && !/^\s*#{1,6}\s+/.test(lines[index] ?? "")) {
+    const line = lines[index] ?? "";
+    const entry = line.match(/^(\s*)(\d+)[.)]?\s+(.+?)\s*$/);
+    if (entry && !line.includes("](#")) {
+      const label = entry[3].replace(/\s+\.{2,}\s*\d+\s*$/, "").trim();
+      const target = headings.get(label.toLowerCase()) || headings.get(`${entry[2]} ${label}`.toLowerCase()) || slugify(`${entry[2]} ${label}`);
+      lines[index] = `${entry[1]}${entry[2]}. [${label}](#${target})`;
+    }
+    index += 1;
+  }
+  return lines.join("\n");
+}
+
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>"']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character] ?? character));
+}
+
+function inlineHtml(value: string): string {
+  let html = escapeHtml(value);
+  html = html.replace(/\[([^\]]+)\]\(#([^\)]+)\)/g, '<a href="#$2">$1</a>');
+  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
+  html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>").replace(/__([^_]+)__/g, "<strong>$1</strong>");
+  html = html.replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*([^*]+)\*/g, "<em>$1</em>").replace(/_([^_]+)_/g, "<em>$1</em>");
+  return html;
+}
+
+export function renderMarkdownHtml(markdown: string): string {
+  const blocks = parseMarkdown(normalizeMarkdownContents(markdown));
+  return blocks.map(block => {
+    if (block.kind === "spacer") return "";
+    if (block.kind === "heading") return `<h${block.level} id="${slugify(block.text)}">${inlineHtml(block.text)}</h${block.level}>`;
+    if (block.kind === "paragraph") return `<p>${inlineHtml(block.text)}</p>`;
+    if (block.kind === "quote") return `<blockquote>${inlineHtml(block.text)}</blockquote>`;
+    if (block.kind === "list") return `<ul>${block.items.map(item => `<li>${inlineHtml(item)}</li>`).join("")}</ul>`;
+    if (block.kind === "ordered-list") return `<ol>${block.items.map(item => `<li>${inlineHtml(item)}</li>`).join("")}</ol>`;
+    return `<table><thead><tr>${block.headers.map(header => `<th>${inlineHtml(header)}</th>`).join("")}</tr></thead><tbody>${block.rows.map(row => `<tr>${block.headers.map((_, index) => `<td>${inlineHtml(row[index] ?? "")}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  }).join("\n");
+}
+
+export async function exportHtml(name: string, markdown: string) {
+  const title = plainText(parseMarkdown(markdown).find(block => block.kind === "heading")?.text ?? "HireMe export");
+  const html = `<!doctype html><html><head><meta charset="utf-8"><title>${escapeHtml(title)}</title><style>body{margin:0;background:#f4f7fa;color:#${BODY};font:15px/1.7 Arial,sans-serif}main{max-width:820px;margin:40px auto;padding:56px 64px;background:#fff;box-shadow:0 8px 32px #174b7620}h1,h2,h3,h4{color:#${ACCENT};line-height:1.25;margin:1.6em 0 .6em}h1{border-bottom:3px solid #${ACCENT};padding-bottom:12px}h2{border-bottom:1px solid #b8c9d6;padding-bottom:8px}a{color:#${ACCENT};font-weight:600}blockquote{margin:1.2em 0;padding:14px 20px;border-left:4px solid #${ACCENT};background:#${LIGHT_ACCENT};color:#${ACCENT}}table{width:100%;border-collapse:collapse;margin:1.5em 0}th{background:#${ACCENT};color:#fff;text-align:left}th,td{padding:10px 12px;border:1px solid #cbd6df;vertical-align:top}tr:nth-child(even){background:#f4f7fa}code{background:#eaf2f8;padding:2px 5px}@media print{body{background:#fff}main{margin:0;max-width:none;box-shadow:none}}</style></head><body><main>${renderMarkdownHtml(markdown)}</main></body></html>`;
+  saveBlob(name, new Blob([html], { type: "text/html;charset=utf-8" }));
+}
 
 function saveBlob(name: string, blob: Blob) {
   const url = URL.createObjectURL(blob);
@@ -105,10 +176,20 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
       continue;
     }
 
+    if (/^\s*\d+[.)]\s+/.test(line)) {
+      const items: string[] = [];
+      while (index < lines.length && /^\s*\d+[.)]\s+/.test(lines[index] ?? "")) {
+        items.push((lines[index] ?? "").replace(/^\s*\d+[.)]\s+/, "").trim());
+        index += 1;
+      }
+      blocks.push({ kind: "ordered-list", items });
+      continue;
+    }
+
     const paragraphLines: string[] = [];
     while (index < lines.length) {
       const current = lines[index] ?? "";
-      if (!current.trim() || /^\s*(#{1,6})\s+/.test(current) || current.trim().startsWith(">") || /^\s*[-*+]\s+/.test(current)) break;
+      if (!current.trim() || /^\s*(#{1,6})\s+/.test(current) || current.trim().startsWith(">") || /^\s*[-*+]\s+/.test(current) || /^\s*\d+[.)]\s+/.test(current)) break;
       if (current.trim().startsWith("|") && index + 1 < lines.length && isTableDivider(lines[index + 1] ?? "")) break;
       paragraphLines.push(current.trim());
       index += 1;
@@ -189,7 +270,7 @@ function tableCell(text: string, header = false): TableCell {
 
 function markdownToDocx(markdown: string, title: string): Document {
   const children: (Paragraph | Table)[] = [];
-  for (const block of parseMarkdown(markdown)) {
+  for (const block of parseMarkdown(normalizeMarkdownContents(markdown))) {
     if (block.kind === "spacer") {
       children.push(new Paragraph({ spacing: { after: 80 } }));
     } else if (block.kind === "heading") {
@@ -198,8 +279,8 @@ function markdownToDocx(markdown: string, title: string): Document {
       children.push(docxParagraph(block.text));
     } else if (block.kind === "quote") {
       children.push(docxParagraph(block.text, { quote: true }));
-    } else if (block.kind === "list") {
-      children.push(...block.items.map((item) => docxParagraph(item, { bullet: true })));
+    } else if (block.kind === "list" || block.kind === "ordered-list") {
+      children.push(...block.items.map((item, index) => docxParagraph(block.kind === "ordered-list" ? `${index + 1}. ${item}` : item, { bullet: block.kind === "list" })));
     } else {
       const rows = [
         new TableRow({ children: block.headers.map((header) => tableCell(header, true)), cantSplit: true }),
@@ -267,6 +348,7 @@ function drawHeaderFooter(page: PDFPage, pageNumber: number, regular: PDFFont, b
 }
 
 export async function exportPdf(name: string, markdown: string) {
+  markdown = normalizeMarkdownContents(markdown);
   const pdf = await PDFDocument.create();
   pdf.setTitle(plainText(parseMarkdown(markdown).find((block) => block.kind === "heading")?.text ?? "HireMe export"));
   pdf.setAuthor("HireMe");
@@ -316,9 +398,10 @@ export async function exportPdf(name: string, markdown: string) {
       y -= 4;
       continue;
     }
-    if (block.kind === "list") {
-      for (const item of block.items) {
-        const lines = wrapText(`- ${plainText(item)}`, regular, 9.5, CONTENT_WIDTH - 12);
+    if (block.kind === "list" || block.kind === "ordered-list") {
+      for (const [index, item] of block.items.entries()) {
+        const prefix = block.kind === "ordered-list" ? `${index + 1}. ` : "- ";
+        const lines = wrapText(`${prefix}${plainText(item)}`, regular, 9.5, CONTENT_WIDTH - 12);
         drawTextLines(lines, 9.5, regular, rgb(0.15, 0.16, 0.18), MARGIN_X + 10, 14);
       }
       y -= 4;
@@ -373,6 +456,8 @@ export async function buildZipBundle(
   guideName: string,
   guideMarkdown: string
 ): Promise<Blob> {
+  assessmentMarkdown = normalizeMarkdownContents(assessmentMarkdown);
+  guideMarkdown = normalizeMarkdownContents(guideMarkdown);
   const [assessPdf, guidePdf] = await Promise.all([
     (async () => {
       const pdf = await PDFDocument.create();
@@ -390,7 +475,7 @@ export async function buildZipBundle(
         if (block.kind === "spacer") { y -= 8; continue; }
         if (block.kind === "heading") { const size = block.level === 1 ? 18 : block.level === 2 ? 13 : 11; const gap = block.level === 1 ? 23 : block.level === 2 ? 18 : 15; const lines = wrapText(plainText(block.text), bold, size, CONTENT_WIDTH); ensureSpace(lines.length * gap + 12); y -= block.level === 1 ? 8 : 5; drawLines(lines, size, bold, rgb(0.09, 0.29, 0.46), MARGIN_X, gap); y -= 3; continue; }
         if (block.kind === "paragraph") { drawLines(wrapText(plainText(block.text), regular, 9.5, CONTENT_WIDTH), 9.5, regular); y -= 4; continue; }
-        if (block.kind === "list") { for (const item of block.items) { drawLines(wrapText(`- ${plainText(item)}`, regular, 9.5, CONTENT_WIDTH - 12), 9.5, regular, rgb(0.15, 0.16, 0.18), MARGIN_X + 10); } y -= 4; continue; }
+        if (block.kind === "list" || block.kind === "ordered-list") { for (const [index, item] of block.items.entries()) { const prefix = block.kind === "ordered-list" ? `${index + 1}. ` : "- "; drawLines(wrapText(`${prefix}${plainText(item)}`, regular, 9.5, CONTENT_WIDTH - 12), 9.5, regular, rgb(0.15, 0.16, 0.18), MARGIN_X + 10); } y -= 4; continue; }
         if (block.kind === "quote") { const lines = wrapText(plainText(block.text), italic, 9.5, CONTENT_WIDTH - 28); const height = lines.length * 14 + 14; ensureSpace(height); page.drawRectangle({ x: MARGIN_X, y: y - height + 4, width: CONTENT_WIDTH, height, color: rgb(0.92, 0.95, 0.97) }); page.drawRectangle({ x: MARGIN_X, y: y - height + 4, width: 3, height, color: rgb(0.09, 0.29, 0.46) }); drawLines(lines, 9.5, italic, rgb(0.09, 0.29, 0.46), MARGIN_X + 16); y -= 8; continue; }
         const columnCount = Math.max(block.headers.length, 1); const columnWidth = CONTENT_WIDTH / columnCount; const rows = [block.headers, ...block.rows];
         for (let ri = 0; ri < rows.length; ri++) { const row = rows[ri] ?? []; const cellLines = row.map((cell) => wrapText(plainText(cell), ri === 0 ? bold : regular, 7.5, columnWidth - 12)); const rowHeight = Math.max(...cellLines.map((l) => l.length), 1) * 10 + 10; ensureSpace(rowHeight + 2); if (ri === 0) page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, color: rgb(0.09, 0.29, 0.46) }); else if (ri % 2 === 0) page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, color: rgb(0.96, 0.97, 0.98) }); for (let col = 0; col < columnCount; col++) { const lines = cellLines[col] ?? [""]; for (let li = 0; li < lines.length; li++) { page.drawText(lines[li] ?? "", { x: MARGIN_X + col * columnWidth + 6, y: y - 10 - li * 10, size: 7.5, font: ri === 0 ? bold : regular, color: ri === 0 ? rgb(1, 1, 1) : rgb(0.15, 0.16, 0.18) }); } } page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, borderColor: rgb(0.65, 0.69, 0.73), borderWidth: 0.35 }); y -= rowHeight; }
@@ -414,7 +499,7 @@ export async function buildZipBundle(
         if (block.kind === "spacer") { y -= 8; continue; }
         if (block.kind === "heading") { const size = block.level === 1 ? 18 : block.level === 2 ? 13 : 11; const gap = block.level === 1 ? 23 : block.level === 2 ? 18 : 15; const lines = wrapText(plainText(block.text), bold, size, CONTENT_WIDTH); ensureSpace(lines.length * gap + 12); y -= block.level === 1 ? 8 : 5; drawLines(lines, size, bold, rgb(0.09, 0.29, 0.46), MARGIN_X, gap); y -= 3; continue; }
         if (block.kind === "paragraph") { drawLines(wrapText(plainText(block.text), regular, 9.5, CONTENT_WIDTH), 9.5, regular); y -= 4; continue; }
-        if (block.kind === "list") { for (const item of block.items) { drawLines(wrapText(`- ${plainText(item)}`, regular, 9.5, CONTENT_WIDTH - 12), 9.5, regular, rgb(0.15, 0.16, 0.18), MARGIN_X + 10); } y -= 4; continue; }
+        if (block.kind === "list" || block.kind === "ordered-list") { for (const [index, item] of block.items.entries()) { const prefix = block.kind === "ordered-list" ? `${index + 1}. ` : "- "; drawLines(wrapText(`${prefix}${plainText(item)}`, regular, 9.5, CONTENT_WIDTH - 12), 9.5, regular, rgb(0.15, 0.16, 0.18), MARGIN_X + 10); } y -= 4; continue; }
         if (block.kind === "quote") { const lines = wrapText(plainText(block.text), italic, 9.5, CONTENT_WIDTH - 28); const height = lines.length * 14 + 14; ensureSpace(height); page.drawRectangle({ x: MARGIN_X, y: y - height + 4, width: CONTENT_WIDTH, height, color: rgb(0.92, 0.95, 0.97) }); page.drawRectangle({ x: MARGIN_X, y: y - height + 4, width: 3, height, color: rgb(0.09, 0.29, 0.46) }); drawLines(lines, 9.5, italic, rgb(0.09, 0.29, 0.46), MARGIN_X + 16); y -= 8; continue; }
         const columnCount = Math.max(block.headers.length, 1); const columnWidth = CONTENT_WIDTH / columnCount; const rows = [block.headers, ...block.rows];
         for (let ri = 0; ri < rows.length; ri++) { const row = rows[ri] ?? []; const cellLines = row.map((cell) => wrapText(plainText(cell), ri === 0 ? bold : regular, 7.5, columnWidth - 12)); const rowHeight = Math.max(...cellLines.map((l) => l.length), 1) * 10 + 10; ensureSpace(rowHeight + 2); if (ri === 0) page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, color: rgb(0.09, 0.29, 0.46) }); else if (ri % 2 === 0) page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, color: rgb(0.96, 0.97, 0.98) }); for (let col = 0; col < columnCount; col++) { const lines = cellLines[col] ?? [""]; for (let li = 0; li < lines.length; li++) { page.drawText(lines[li] ?? "", { x: MARGIN_X + col * columnWidth + 6, y: y - 10 - li * 10, size: 7.5, font: ri === 0 ? bold : regular, color: ri === 0 ? rgb(1, 1, 1) : rgb(0.15, 0.16, 0.18) }); } } page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, borderColor: rgb(0.65, 0.69, 0.73), borderWidth: 0.35 }); y -= rowHeight; }
