@@ -76,6 +76,82 @@ function providerIdForLabel(label: string): ProviderId {
   return label.toLowerCase().replace(" ", "") as ProviderId;
 }
 
+const modelOptions: Record<string, string[]> = {
+  "Local deterministic": ["Evidence-first baseline"],
+  OpenAI: ["gpt-4o-mini", "gpt-4o", "gpt-5-mini"],
+  Anthropic: ["claude-3-5-sonnet-20241022", "claude-3-7-sonnet-latest", "claude-3-5-haiku-20241022"],
+  "Google Gemini": ["gemini-1.5-flash", "gemini-1.5-pro", "gemini-2.0-flash"],
+  OpenRouter: ["meta-llama/llama-3.3-70b-instruct:free", "google/gemini-2.0-flash-exp:free", "qwen/qwen-2.5-72b-instruct"],
+  Ollama: ["llama3.2", "qwen2.5", "mistral"],
+  "LM Studio": ["local-model"],
+  "OpenAI-compatible": ["gpt-3.5-turbo", "gpt-4o-mini"],
+};
+
+function modelStorageKey(provider: string) {
+  return `hireme-model-${provider.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+}
+
+function exportNames(result: AnalysisResult) {
+  return {
+    assessment: safeFileName(result.resume.candidateName, result.job.title, "Resume_Fit_Assessment"),
+    guide: safeFileName(result.resume.candidateName, result.job.title, "Interview_Study_Guide"),
+    package: safeFileName(result.resume.candidateName, result.job.title, "HireMe_Package"),
+  };
+}
+
+function downloadBlob(name: string, blob: Blob) {
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = name;
+  anchor.click();
+  window.setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+function AnalysisExportMenu({ result }: { result: AnalysisResult }) {
+  const [format, setFormat] = useState("full-json");
+  const names = exportNames(result);
+  const blocked = result.audit.status === "blocked";
+  const exportCurrent = async () => {
+    if (blocked) return;
+    if (format === "full-json") {
+      download("hireme-full-analysis.json", JSON.stringify(result, null, 2), "application/json");
+      return;
+    }
+    if (format === "package-zip") {
+      const blob = await buildZipBundle(`${names.assessment}.pdf`, result.assessment, `${names.guide}.pdf`, result.studyGuide);
+      downloadBlob(`${names.package}.zip`, blob);
+      return;
+    }
+    const isGuide = format.startsWith("guide");
+    const markdown = isGuide ? result.studyGuide : result.assessment;
+    const name = isGuide ? names.guide : names.assessment;
+    if (format.endsWith("markdown")) download(`${name}.md`, markdown, "text/markdown");
+    if (format.endsWith("json")) download(`${name}.json`, JSON.stringify({ content: markdown }, null, 2), "application/json");
+    if (format.endsWith("pdf")) await exportPdf(`${name}.pdf`, markdown);
+    if (format.endsWith("docx")) await exportDocx(`${name}.docx`, markdown);
+  };
+  return (
+    <div className="export-menu">
+      <select aria-label="Export format" value={format} onChange={e => setFormat(e.target.value)}>
+        <option value="full-json">Full analysis JSON</option>
+        <option value="assessment-markdown">Assessment Markdown</option>
+        <option value="assessment-json">Assessment JSON</option>
+        <option value="assessment-pdf">Assessment PDF</option>
+        <option value="assessment-docx">Assessment DOCX</option>
+        <option value="guide-markdown">Study guide Markdown</option>
+        <option value="guide-json">Study guide JSON</option>
+        <option value="guide-pdf">Study guide PDF</option>
+        <option value="guide-docx">Study guide DOCX</option>
+        <option value="package-zip">PDF package ZIP</option>
+      </select>
+      <Button variant="outline" onClick={() => void exportCurrent()} disabled={blocked}>
+        <Download size={15} /> Export
+      </Button>
+    </div>
+  );
+}
+
 function SourceCard({
   kind,
   state,
@@ -274,6 +350,7 @@ function Results({
               ? "AUDIT PASSED"
               : "EXPORT BLOCKED"}
           </Badge>
+          <AnalysisExportMenu result={result} />
           <Button variant="outline" onClick={onReset}>
             <RotateCcw size={16} /> New analysis
           </Button>
@@ -665,9 +742,14 @@ export default function Home() {
   const [saveHistory, setSaveHistory] = useState(
     () => localStorage.getItem("hireme-save-history") === "true"
   );
-  const [provider, setProvider] = useState("Local deterministic");
+  const [provider, setProvider] = useState(
+    () => localStorage.getItem("hireme-provider") || "Local deterministic"
+  );
   const [model, setModel] = useState(
-    () => localStorage.getItem("hireme-model") || "Evidence-first baseline"
+    () =>
+      localStorage.getItem(modelStorageKey(localStorage.getItem("hireme-provider") || "Local deterministic")) ||
+      localStorage.getItem("hireme-model") ||
+      "Evidence-first baseline"
   );
   const [endpoint, setEndpoint] = useState(
     () => localStorage.getItem("hireme-endpoint") || ""
@@ -889,6 +971,11 @@ export default function Home() {
               <ChevronRight className="nav-arrow" size={15} />
             </button>
           ))}
+          <a className="sidebar-download" href="/hireme-skill.zip" download>
+            <Download size={17} />
+            Export Agent Skill
+            <ChevronRight className="nav-arrow" size={15} />
+          </a>
         </nav>
         <div className="sidebar-bottom">
           <div className="privacy-chip">
@@ -1018,29 +1105,34 @@ export default function Home() {
             ) : (
               <div className="history-list">
                 {history.map(item => (
-                  <button
+                  <div
                     className="history-item"
                     key={item.id}
-                    onClick={() => {
-                      setResult(item);
-                      setView("analyze");
-                    }}
                   >
-                    <span>
-                      <strong>
-                        {item.resume.candidateName || "Unnamed candidate"}
-                      </strong>
-                      <small>
-                        {item.job.title || "Untitled role"} ·{" "}
-                        {new Date(item.createdAt).toLocaleDateString()}
-                      </small>
-                    </span>
-                    <b>
-                      {item.score}
-                      <small>/100</small>
-                    </b>
-                    <ChevronRight size={17} />
-                  </button>
+                    <button
+                      className="history-open"
+                      onClick={() => {
+                        setResult(item);
+                        setView("analyze");
+                      }}
+                    >
+                      <span>
+                        <strong>
+                          {item.resume.candidateName || "Unnamed candidate"}
+                        </strong>
+                        <small>
+                          {item.job.title || "Untitled role"} ·{" "}
+                          {new Date(item.createdAt).toLocaleDateString()}
+                        </small>
+                      </span>
+                      <b>
+                        {item.score}
+                        <small>/100</small>
+                      </b>
+                      <ChevronRight size={17} />
+                    </button>
+                    <AnalysisExportMenu result={item} />
+                  </div>
                 ))}
                 <Button
                   variant="outline"
@@ -1075,16 +1167,14 @@ export default function Home() {
                     const nextP = e.target.value;
                     setProvider(nextP);
                     setTestStatus(null);
-                    const def = defaultModels[nextP];
-                    if (
-                      def &&
-                      (!model ||
-                        model === "Evidence-first baseline" ||
-                        Object.values(defaultModels).includes(model))
-                    ) {
-                      setModel(def);
-                      localStorage.setItem("hireme-model", def);
-                    }
+                    localStorage.setItem("hireme-provider", nextP);
+                    const nextModel =
+                      localStorage.getItem(modelStorageKey(nextP)) ||
+                      defaultModels[nextP] ||
+                      modelOptions[nextP]?.[0] ||
+                      "gpt-4o-mini";
+                    setModel(nextModel);
+                    localStorage.setItem(modelStorageKey(nextP), nextModel);
                   }}
                 >
                   <option>Local deterministic</option>
@@ -1096,15 +1186,33 @@ export default function Home() {
                   <option>LM Studio</option>
                   <option>OpenAI-compatible</option>
                 </select>
-                <Input
-                  value={model}
+                <select
+                  value={modelOptions[provider]?.includes(model) ? model : "custom"}
                   onChange={e => {
-                    setModel(e.target.value);
-                    localStorage.setItem("hireme-model", e.target.value);
+                    const nextModel = e.target.value === "custom" ? "" : e.target.value;
+                    setModel(nextModel);
+                    localStorage.setItem(modelStorageKey(provider), nextModel);
+                    localStorage.setItem("hireme-model", nextModel);
                   }}
-                  placeholder="Model identifier"
-                  aria-label="Model identifier"
-                />
+                  aria-label="Model"
+                >
+                  {(modelOptions[provider] || []).map(option => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                  <option value="custom">Custom model identifier</option>
+                </select>
+                {(!modelOptions[provider]?.includes(model) || model === "") && (
+                  <Input
+                    value={model}
+                    onChange={e => {
+                      setModel(e.target.value);
+                      localStorage.setItem(modelStorageKey(provider), e.target.value);
+                      localStorage.setItem("hireme-model", e.target.value);
+                    }}
+                    placeholder="Custom model identifier"
+                    aria-label="Custom model identifier"
+                  />
+                )}
                 <Input
                   value={endpoint}
                   onChange={e => {
