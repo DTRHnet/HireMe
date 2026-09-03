@@ -132,7 +132,22 @@ export function extractText(kind: InputKind, input: { text?: string; file?: File
 
 function firstMatch(text: string, patterns: RegExp[]): string | null { for (const p of patterns) { const m = text.match(p); if (m?.[1]) return m[1].trim(); } return null; }
 function items(lines: string[], category: string, source: SourceSpan[]): EvidenceItem[] { return lines.filter(Boolean).slice(0, 12).map((text) => ({ text, category, sourceSpanId: source.find((s) => s.text === text)?.id ?? null, originalDate: text.match(/\b(?:19|20)\d{2}\b(?:\s*[-–]\s*(?:present|\d{4}))?/i)?.[0] ?? null })); }
-function bulletLines(text: string): string[] { return text.split(/\n+/).map((x) => x.replace(/^\s*[-•*▪]\s*/, "").trim()).filter((x) => x.length > 12); }
+function isJobBoilerplate(line: string): boolean {
+  const l = line.trim();
+  if (!l || l.length < 12) return true;
+  // Metadata key-value fields (location, company, site, dates, salary, etc.)
+  if (/^(?:posting\s*(?:number|no|#)|title|position(?:\s*status|\s*information)?|fte|job\s*(?:schedule|type|id)|department|union|site|location|based\s*in|salary(?:\s*range)?|compensation|rate|hours|shift|number\s*of\s*vacancies?|vacancy|closing\s*date|deadline|reference|company|organization|employer)\s*[:\-\t]/i.test(l)) return true;
+  // Section / category headings (short standalone labels)
+  if (/^(?:about\s+(?:the\s+)?(?:role|position|company|hospital|organization|program|team|us)|key\s*responsibilities|responsibilities|qualifications|required\s+qualifications?|knowledge\s*and\s*skills?|language\s*requirements?|benefits|additional\s*information|strategic\s*planning(?:\s*&\s*organizational\s*transformation)?|risk\s*management(?:\s*leadership)?|emergency\s*management|portfolio\s*financial(?:\s*stewardship.*)?|epic\s*program(?:\s*sustainability)?|what\s+we\s+offer|who\s+we\s+are|position\s*information|preferred|required)\s*$/i.test(l)) return true;
+  // Company narrative / overview prose starters
+  if (/^(?:as\s+one\s+of|this\s+is\s+at\s+the\s+core|every\s+day,\s+the\s+work|reporting\s+to\s+the|together,\s*these\s*benefits|at\s+the\s+royal,\s*we\s+are|our\s+commitment\s+is|we\s+are\s+committed)/i.test(l)) return true;
+  // Benefits / perks lines
+  if (/^(?:hoopp|competitive\s+(?:health|salary)|life\s+insurance|employee\s+and\s+family\s+assistance|efap|dental|pension|rrsp|stock\s+options?|health\s+(?:and\s+dental|benefits))/i.test(l)) return true;
+  // Application / legal boilerplate
+  if (/^(?:all\s*applicants|please\s*(?:apply|note)|the\s+(?:royal\s+sincerely\s+thanks|company)|all\s*new\s*hires|we\s+encourage\s+applications|upon\s+request,\s*accommodations|this\s+posting\s+is)/i.test(l)) return true;
+  return false;
+}
+function bulletLines(text: string): string[] { return text.split(/\n+/).map((x) => x.replace(/^\s*[-•*▪]\s*/, "").trim()).filter((x) => x.length > 12 && !isJobBoilerplate(x)); }
 function requirements(text: string, source: SourceSpan[]): Requirement[] { return bulletLines(text).slice(0, 24).map((line, i) => ({ id: `req-${i + 1}`, text: line, category: /lead|manage|supervis|director|coach/i.test(line) ? "Leadership" : /system|software|platform|excel|sql|crm/i.test(line) ? "Systems" : /degree|certif|license|registration/i.test(line) ? "Credentials" : /budget|process|operation|quality|project|stakeholder/i.test(line) ? "Operations" : "Core requirement", mandatory: /required|must|minimum|essential/i.test(line), sourceSpanId: source.find((s) => s.text === line)?.id ?? null })); }
 
 export function normalizeJob(doc: ExtractedDocument): NormalizedJob {
@@ -194,7 +209,7 @@ Prepared by HireMe
 ---
 
 ## 1. Executive assessment
-Your resume represents a documented fit score of **${score}/100** for the **${jobTitle}** role at **${employer}**. This score is determined through an evidence-based comparison of the candidate resume against stated posting criteria.
+Your resume represents a documented fit score of **${score}/100** for the **${jobTitle}** role at **${employer}**. This score is determined through an evidence-based comparison of the candidate resume against stated posting criteria. It is not a probability of hiring.
 
 ${score >= 70 ? "This is a competitive, high-alignment profile with substantial direct evidence supporting core operational and domain expectations." : score >= 40 ? "This profile represents a transferable match with demonstrable strengths in select areas, though several core functional dimensions require clarification of scope and direct ownership." : "This profile indicates significant evidence gaps against enterprise-level expectations, requiring a carefully bounded interview strategy centered on transferable problem-solving rather than unsupported ownership."}
 
@@ -257,8 +272,10 @@ export function generateStudyGuide(job: NormalizedJob, matrix: EvidenceRow[]): s
 ## ${jobTitle} — ${employer}
 **Candidate:** ${candidateName}
 **Purpose:** Same-day preparation for the interview
-
+## Central message
+Lead with the verified evidence in the matrix, acknowledge gaps plainly, and use structured process answers for anything the resume does not establish.
 ## 1. What the panel is likely looking for
+
 
 The panel is evaluating both functional capability and strategic leadership. For **${jobTitle}** at **${employer}**, success requires balancing operational reliability, team performance, compliance/risk governance, and measurable continuous improvement.
 

@@ -16,6 +16,7 @@ import {
   WidthType,
 } from "docx";
 import { PDFDocument, PDFFont, PDFPage, StandardFonts, rgb } from "pdf-lib";
+import JSZip from "jszip";
 
 type InlineToken = { text: string; bold?: boolean; italics?: boolean; code?: boolean };
 type MarkdownBlock =
@@ -360,4 +361,71 @@ export async function exportPdf(name: string, markdown: string) {
   const pdfBuffer = new ArrayBuffer(bytes.byteLength);
   new Uint8Array(pdfBuffer).set(bytes);
   saveBlob(name, new Blob([pdfBuffer], { type: "application/pdf" }));
+}
+
+/**
+ * Renders both the assessment and study guide as PDFs, bundles them into a
+ * single ZIP archive, and returns the Blob so the caller can prompt the user.
+ */
+export async function buildZipBundle(
+  assessmentName: string,
+  assessmentMarkdown: string,
+  guideName: string,
+  guideMarkdown: string
+): Promise<Blob> {
+  const [assessPdf, guidePdf] = await Promise.all([
+    (async () => {
+      const pdf = await PDFDocument.create();
+      pdf.setTitle(plainText(parseMarkdown(assessmentMarkdown).find((b) => b.kind === "heading")?.text ?? "Assessment"));
+      pdf.setAuthor("HireMe");
+      const regular = await pdf.embedFont(StandardFonts.Helvetica);
+      const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
+      const italic = await pdf.embedFont(StandardFonts.HelveticaOblique);
+      let pageNumber = 0; let page!: PDFPage; let y = 0;
+      const newPage = () => { page = pdf.addPage([PAGE_WIDTH, PAGE_HEIGHT]); pageNumber++; drawHeaderFooter(page, pageNumber, regular, bold); y = TOP_Y; };
+      const ensureSpace = (h: number) => { if (y - h < BOTTOM_Y) newPage(); };
+      const drawLines = (lines: string[], size: number, font: PDFFont, color = rgb(0.15, 0.16, 0.18), x = MARGIN_X, gap = 14) => { for (const line of lines) { ensureSpace(gap); page.drawText(line, { x, y, size, font, color }); y -= gap; } };
+      newPage();
+      for (const block of parseMarkdown(assessmentMarkdown)) {
+        if (block.kind === "spacer") { y -= 8; continue; }
+        if (block.kind === "heading") { const size = block.level === 1 ? 18 : block.level === 2 ? 13 : 11; const gap = block.level === 1 ? 23 : block.level === 2 ? 18 : 15; const lines = wrapText(plainText(block.text), bold, size, CONTENT_WIDTH); ensureSpace(lines.length * gap + 12); y -= block.level === 1 ? 8 : 5; drawLines(lines, size, bold, rgb(0.09, 0.29, 0.46), MARGIN_X, gap); y -= 3; continue; }
+        if (block.kind === "paragraph") { drawLines(wrapText(plainText(block.text), regular, 9.5, CONTENT_WIDTH), 9.5, regular); y -= 4; continue; }
+        if (block.kind === "list") { for (const item of block.items) { drawLines(wrapText(`- ${plainText(item)}`, regular, 9.5, CONTENT_WIDTH - 12), 9.5, regular, rgb(0.15, 0.16, 0.18), MARGIN_X + 10); } y -= 4; continue; }
+        if (block.kind === "quote") { const lines = wrapText(plainText(block.text), italic, 9.5, CONTENT_WIDTH - 28); const height = lines.length * 14 + 14; ensureSpace(height); page.drawRectangle({ x: MARGIN_X, y: y - height + 4, width: CONTENT_WIDTH, height, color: rgb(0.92, 0.95, 0.97) }); page.drawRectangle({ x: MARGIN_X, y: y - height + 4, width: 3, height, color: rgb(0.09, 0.29, 0.46) }); drawLines(lines, 9.5, italic, rgb(0.09, 0.29, 0.46), MARGIN_X + 16); y -= 8; continue; }
+        const columnCount = Math.max(block.headers.length, 1); const columnWidth = CONTENT_WIDTH / columnCount; const rows = [block.headers, ...block.rows];
+        for (let ri = 0; ri < rows.length; ri++) { const row = rows[ri] ?? []; const cellLines = row.map((cell) => wrapText(plainText(cell), ri === 0 ? bold : regular, 7.5, columnWidth - 12)); const rowHeight = Math.max(...cellLines.map((l) => l.length), 1) * 10 + 10; ensureSpace(rowHeight + 2); if (ri === 0) page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, color: rgb(0.09, 0.29, 0.46) }); else if (ri % 2 === 0) page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, color: rgb(0.96, 0.97, 0.98) }); for (let col = 0; col < columnCount; col++) { const lines = cellLines[col] ?? [""]; for (let li = 0; li < lines.length; li++) { page.drawText(lines[li] ?? "", { x: MARGIN_X + col * columnWidth + 6, y: y - 10 - li * 10, size: 7.5, font: ri === 0 ? bold : regular, color: ri === 0 ? rgb(1, 1, 1) : rgb(0.15, 0.16, 0.18) }); } } page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, borderColor: rgb(0.65, 0.69, 0.73), borderWidth: 0.35 }); y -= rowHeight; }
+        y -= 8;
+      }
+      return pdf.save();
+    })(),
+    (async () => {
+      const pdf = await PDFDocument.create();
+      pdf.setTitle(plainText(parseMarkdown(guideMarkdown).find((b) => b.kind === "heading")?.text ?? "Study Guide"));
+      pdf.setAuthor("HireMe");
+      const regular = await pdf.embedFont(StandardFonts.Helvetica);
+      const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
+      const italic = await pdf.embedFont(StandardFonts.HelveticaOblique);
+      let pageNumber = 0; let page!: PDFPage; let y = 0;
+      const newPage = () => { page = pdf.addPage([PAGE_WIDTH, PAGE_HEIGHT]); pageNumber++; drawHeaderFooter(page, pageNumber, regular, bold); y = TOP_Y; };
+      const ensureSpace = (h: number) => { if (y - h < BOTTOM_Y) newPage(); };
+      const drawLines = (lines: string[], size: number, font: PDFFont, color = rgb(0.15, 0.16, 0.18), x = MARGIN_X, gap = 14) => { for (const line of lines) { ensureSpace(gap); page.drawText(line, { x, y, size, font, color }); y -= gap; } };
+      newPage();
+      for (const block of parseMarkdown(guideMarkdown)) {
+        if (block.kind === "spacer") { y -= 8; continue; }
+        if (block.kind === "heading") { const size = block.level === 1 ? 18 : block.level === 2 ? 13 : 11; const gap = block.level === 1 ? 23 : block.level === 2 ? 18 : 15; const lines = wrapText(plainText(block.text), bold, size, CONTENT_WIDTH); ensureSpace(lines.length * gap + 12); y -= block.level === 1 ? 8 : 5; drawLines(lines, size, bold, rgb(0.09, 0.29, 0.46), MARGIN_X, gap); y -= 3; continue; }
+        if (block.kind === "paragraph") { drawLines(wrapText(plainText(block.text), regular, 9.5, CONTENT_WIDTH), 9.5, regular); y -= 4; continue; }
+        if (block.kind === "list") { for (const item of block.items) { drawLines(wrapText(`- ${plainText(item)}`, regular, 9.5, CONTENT_WIDTH - 12), 9.5, regular, rgb(0.15, 0.16, 0.18), MARGIN_X + 10); } y -= 4; continue; }
+        if (block.kind === "quote") { const lines = wrapText(plainText(block.text), italic, 9.5, CONTENT_WIDTH - 28); const height = lines.length * 14 + 14; ensureSpace(height); page.drawRectangle({ x: MARGIN_X, y: y - height + 4, width: CONTENT_WIDTH, height, color: rgb(0.92, 0.95, 0.97) }); page.drawRectangle({ x: MARGIN_X, y: y - height + 4, width: 3, height, color: rgb(0.09, 0.29, 0.46) }); drawLines(lines, 9.5, italic, rgb(0.09, 0.29, 0.46), MARGIN_X + 16); y -= 8; continue; }
+        const columnCount = Math.max(block.headers.length, 1); const columnWidth = CONTENT_WIDTH / columnCount; const rows = [block.headers, ...block.rows];
+        for (let ri = 0; ri < rows.length; ri++) { const row = rows[ri] ?? []; const cellLines = row.map((cell) => wrapText(plainText(cell), ri === 0 ? bold : regular, 7.5, columnWidth - 12)); const rowHeight = Math.max(...cellLines.map((l) => l.length), 1) * 10 + 10; ensureSpace(rowHeight + 2); if (ri === 0) page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, color: rgb(0.09, 0.29, 0.46) }); else if (ri % 2 === 0) page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, color: rgb(0.96, 0.97, 0.98) }); for (let col = 0; col < columnCount; col++) { const lines = cellLines[col] ?? [""]; for (let li = 0; li < lines.length; li++) { page.drawText(lines[li] ?? "", { x: MARGIN_X + col * columnWidth + 6, y: y - 10 - li * 10, size: 7.5, font: ri === 0 ? bold : regular, color: ri === 0 ? rgb(1, 1, 1) : rgb(0.15, 0.16, 0.18) }); } } page.drawRectangle({ x: MARGIN_X, y: y - rowHeight + 3, width: CONTENT_WIDTH, height: rowHeight, borderColor: rgb(0.65, 0.69, 0.73), borderWidth: 0.35 }); y -= rowHeight; }
+        y -= 8;
+      }
+      return pdf.save();
+    })(),
+  ]);
+
+  const zip = new JSZip();
+  zip.file(`${assessmentName}.pdf`, assessPdf);
+  zip.file(`${guideName}.pdf`, guidePdf);
+  return zip.generateAsync({ type: "blob", compression: "DEFLATE" });
 }
