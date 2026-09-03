@@ -140,7 +140,8 @@ export function normalizeJob(doc: ExtractedDocument): NormalizedJob {
   const source = doc.sourceSpans;
   const reqs = requirements(text, source);
   const title = firstMatch(text, [/^(?:title|position|role)\s*:\s*(.+)$/im, /(?:seeking|hiring)\s+(?:a|an)?\s*([^\n.]+)/i]);
-  const employer = firstMatch(text, [/^(?:company|employer|organization)\s*:\s*(.+)$/im, /(?:at|join)\s+([A-Z][A-Za-z0-9 &.-]{2,40})/]);
+  let employer = firstMatch(text, [/^(?:company|employer|organization|site)\s*:\s*(.+)$/im, /(?:about|at|join)\s+([A-Z][A-Za-z0-9 &.-]{2,40})/i]);
+  if (employer) employer = employer.replace(/[.,;]+$/, "").trim();
   const words = (text.match(KEY_TERMS) ?? []).map((x) => x.toLowerCase()).filter((x) => !STOP_WORDS.has(x));
   const keywords = Array.from(new Set(words)).slice(0, 40);
   const by = (cat: string) => reqs.filter((r) => r.category === cat);
@@ -149,7 +150,12 @@ export function normalizeJob(doc: ExtractedDocument): NormalizedJob {
 
 export function normalizeResume(doc: ExtractedDocument): NormalizedResume {
   const text = doc.text; const source = doc.sourceSpans; const lines = bulletLines(text);
-  const name = text.split(/\n/).map((x) => x.trim()).find((x) => x && x.length < 70 && !/@|resume|curriculum vitae/i.test(x)) ?? null;
+  let name = text.split(/\n/).map((x) => x.trim()).find((x) => x && x.length < 80 && !/@|resume|curriculum vitae/i.test(x)) ?? null;
+  if (name) {
+    name = name.replace(/\s+(?:\d{1,5}\s+[A-Za-z0-9\s,.-]+|\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}).*$/, "");
+    name = name.replace(/^(?:resume|cv|curriculum vitae)\s*[:-]?\s*/i, "");
+    name = name.replace(/[,|].*$/, "").trim();
+  }
   const contact = { email: text.match(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/)?.[0] ?? null, phone: text.match(/(?:\+?\d[\d ()-]{7,}\d)/)?.[0] ?? null, location: firstMatch(text, [/^(?:location|based in)\s*:\s*(.+)$/im]) };
   const employment = lines.filter((x) => /\b(?:19|20)\d{2}\b/.test(x)).slice(0, 8).map((x) => ({ role: x.replace(/\s*\|.*$/, ""), employer: null, dates: x.match(/\b(?:19|20)\d{2}\b.*$/)?.[0] ?? null, bullets: [] }));
   return { candidateName: name, contact: contact.email || contact.phone || contact.location ? contact : null, summary: text.split(/\n\n/)[0]?.trim() ?? null, education: items(lines.filter((x) => /degree|bachelor|master|college|university/i.test(x)), "Education", source), registrations: items(lines.filter((x) => /registration|licensed|licen[cs]e/i.test(x)), "Registration", source), certifications: items(lines.filter((x) => /certif/i.test(x)), "Certification", source), skills: items(lines.filter((x) => /skill|proficient|experienced in/i.test(x)), "Skill", source), systems: items(lines.filter((x) => /software|system|platform|excel|sql|crm|ehr/i.test(x)), "System", source), employmentHistory: employment, leadership: items(lines.filter((x) => /lead|manage|supervis|coach|director/i.test(x)), "Leadership", source), operations: items(lines.filter((x) => /operat|process|budget|project|workflow/i.test(x)), "Operations", source), qualityImprovement: items(lines.filter((x) => /quality|improv|audit|metric|outcome/i.test(x)), "Quality", source), stakeholderExperience: items(lines.filter((x) => /stakeholder|partner|client|customer|community/i.test(x)), "Stakeholder", source), rawText: text, sourceSpans: source };
@@ -161,10 +167,222 @@ export function buildEvidenceMatrix(job: NormalizedJob, resume: NormalizedResume
 
 export function auditOutputs(matrix: EvidenceRow[], assessment: string, guide: string, score: number, identity?: { candidate: string | null; role: string | null; employer: string | null }): AuditResult { const critical: string[] = []; const warnings: string[] = []; if (identity?.candidate && !assessment.includes(identity.candidate) && !guide.includes(identity.candidate)) warnings.push("Candidate identity is not repeated in generated artifacts; confirm metadata before export."); if (identity?.role && !assessment.toLowerCase().includes(identity.role.toLowerCase())) warnings.push("Target role is not repeated in the assessment; confirm metadata before export."); if (identity?.employer && !assessment.toLowerCase().includes(identity.employer.toLowerCase())) warnings.push("Employer is not repeated in the assessment; confirm metadata before export."); const combined = `${assessment}\n${guide}`; const numbers = combined.match(/\b\d+(?:\.\d+)?%?|\$\d+[\d,]*/g) ?? []; for (const n of numbers) { if (!matrix.some((row) => row.resumeEvidence.some((e) => e.quote.includes(n)))) warnings.push(`Metric ${n} appears in generated text without a matching evidence quote.`); } if (matrix.reduce((a, r) => a + r.maximumScore, 0) !== 100) critical.push("Evidence matrix maximum score does not total 100."); if (score < 0 || score > 100) critical.push("Documented-fit score is outside the 0–100 range."); return { status: critical.length ? "blocked" : "passed", critical, warnings }; }
 
-export function generateAssessment(job: NormalizedJob, matrix: EvidenceRow[], score: number): string { const strong = matrix.filter((r) => r.evidenceGrade === "Explicit").slice(0, 3); const gaps = matrix.filter((r) => r.evidenceGrade === "Absent").slice(0, 3); return `# Resume Fit Assessment\n\n## 1. Executive assessment\n\n**Documented-fit score: ${score}/100.** This score reflects visible evidence in the supplied resume compared with the supplied posting; it is not a probability of hiring.\n\nThe strongest documented alignments are ${strong.length ? strong.map((r) => r.requirement).join(", ") : "not yet established"}. The largest evidence gaps are ${gaps.length ? gaps.map((r) => r.requirement).join(", ") : "not material in the current matrix"}.\n\n> **Bottom line**\n> The central interview burden is to connect the documented evidence to the role's scope while answering missing-detail questions without inventing facts.\n\n## 2. Weighted scoring rubric\n\n| Area | Weight | Score | Assessment |\n|---|---:|---:|---|\n${matrix.map((r) => `| ${r.requirement} | ${r.maximumScore} | ${r.earnedScore} | ${r.evidenceGrade}; ${r.gapOrAmbiguity ?? "direct evidence documented"} |`).join("\n")}\n\n## 3. Detailed fit analysis\n\n${matrix.map((r, i) => `### 3.${i + 1} ${i + 1}. ${r.requirement} — ${r.earnedScore}/${r.maximumScore}\n\n**Evidence grade:** ${r.evidenceGrade}. ${r.resumeEvidence[0] ? `The resume evidence reads: “${r.resumeEvidence[0].quote}”` : "The supplied resume does not provide a supporting quote."} ${r.gapOrAmbiguity ?? "No material gap is recorded."}\n\n**Interview emphasis:** ${r.interviewImplication}`).join("\n\n")}\n\n## 4. Key strengths to emphasize\n\n${strong.length ? strong.map((r) => `- **${r.requirement}:** ${r.resumeEvidence[0]?.quote ?? "Documented evidence is present."}`).join("\n") : "No criterion currently reaches the Explicit grade."}\n\n## 5. Main interview risks and how to manage them\n\n${gaps.length ? gaps.map((r) => `- **Panel question:** You have not documented ${r.requirement}. **Response strategy:** acknowledge the boundary, state transferable evidence only if accurate, describe a sound process, and identify when to consult the appropriate expert.`).join("\n") : "The panel should still verify scope, recency, and ownership for each major criterion."}\n\n## 6. Interview-ready positioning statement\n\nI would position my experience around the responsibilities I can document directly, explain the scope of those examples clearly, and be candid about areas that require clarification. I would connect my evidence to the role's priorities without turning adjacent experience into a claim of direct ownership.\n\n## 7. Final recommendation\n\n**Credible fit with clarification areas.** The recommendation should be revisited after the candidate confirms the largest evidence gaps and role scope.\n\n## 8. Immediate preparation checklist\n\nConfirm the scope and recency of each Explicit or Strongly implied example, prepare one accurate story for the largest gaps, and replace every placeholder with verified personal history before use.\n\n## 9. Method and source note\n\nSources: supplied job description and supplied candidate resume. The score reflects visible evidence in those materials. All examples, metrics, dates, and claims require correction to the candidate's accurate history.`; }
+export function generateAssessment(job: NormalizedJob, matrix: EvidenceRow[], score: number): string {
+  const candidateName = "Candidate";
+  const jobTitle = job.title || "Target Role";
+  const employer = job.employer || "Employer";
+  const strong = matrix.filter((r) => r.evidenceGrade === "Explicit" || r.evidenceGrade === "Strongly implied");
+  const gaps = matrix.filter((r) => r.evidenceGrade === "Absent" || r.evidenceGrade === "Weakly implied");
 
-export function generateStudyGuide(job: NormalizedJob, matrix: EvidenceRow[]): string { const gaps = matrix.filter((r) => r.evidenceGrade === "Absent").slice(0, 4); return `# Interview Study Guide\n\n> **Central message**\n> Speak from the evidence you can verify. Use adjacent experience as transferability, not as direct ownership.\n\n## What the panel is likely looking for\n\nThe panel is likely to test the role requirements, the scope of examples, decision-making process, stakeholder communication, and how you handle evidence gaps.\n\n## Your strongest fit with the posting\n\n| Requirement or responsibility | Evidence from your resume | How to position it |\n|---|---|---|\n${matrix.filter((r) => r.evidenceGrade !== "Absent").slice(0, 8).map((r) => `| ${r.requirement} | ${r.resumeEvidence[0]?.quote ?? "Evidence requires confirmation"} | Explain the verified scope and outcome; do not add unsupported detail. |`).join("\n")}\n\n## 60–90 second opening answer\n\nI would start by connecting my documented experience to the responsibilities named in this posting. I would give one or two verified examples, explain the scope I personally owned, and identify where I am preparing to learn or clarify the environment.\n\n## Keywords to use naturally\n\n${Array.from(new Set(matrix.flatMap((r) => r.requirement.match(KEY_TERMS) ?? []))).slice(0, 18).join(", ")}\n\n## Topics to review before the interview\n\nReview the role's systems, regulations, operating concepts, and any requirement graded Absent. Review is not evidence of prior expertise.\n\n## Adaptable STAR story bank\n\nPrepare stories anchored in your actual roles. For each story, write Situation, Task, Action, Result, and Lesson; use [confirm metric] where the source materials do not provide a number.\n\n## Mock interview questions and answer focus\n\n| Question | What the panel wants to hear |\n|---|---|\n${matrix.slice(0, 8).map((r) => `| Tell us about your experience with ${r.requirement}. | A concise example, your role, verified scope, and an honest boundary statement. |`).join("\n")}\n\n## Suggested answers to challenging areas\n\n${gaps.length ? gaps.map((r) => `**${r.requirement}** — I have not documented direct ownership of this exact area in the supplied resume. I can describe the adjacent experience I can verify, explain the process I would follow, and identify when I would consult the appropriate expert.`).join("\n\n") : "No Absent criteria are currently recorded; still verify every claim before speaking."}\n\n## Questions to ask the panel\n\nAsk about first-priority outcomes, success measures, decision rights, onboarding, team or service challenges, and how the organization defines strong performance.\n\n## Same-day preparation schedule\n\nBlock time for the opening answer, two accurate stories, technical review, role vocabulary, logistics, and a final evidence check.\n\n## Final rapid-review checklist\n\nSpeak naturally, protect confidential information, label gaps honestly, and verify every metric, date, credential, and outcome.\n\n## Closing statement and Source note\n\nI would close by restating the documented value I can bring, naming the areas I am prepared to clarify, and thanking the panel. This guide uses only the supplied job description, resume, and shared evidence matrix.`; }
+  return `# Resume Fit Assessment
+## ${jobTitle} — ${employer}
+**Prepared for ${candidateName}**
+Detailed role-fit analysis based on the supplied job description and resume
+Prepared by HireMe
 
-export function makeAnalysis(jobDoc: ExtractedDocument, resumeDoc: ExtractedDocument, provider = "Local deterministic", model = "Evidence-first baseline"): AnalysisResult { const jobInput = jobDoc.sourceSpans.length ? jobDoc : { ...jobDoc, sourceSpans: spans("job", jobDoc.text) }; const resumeInput = resumeDoc.sourceSpans.length ? resumeDoc : { ...resumeDoc, sourceSpans: spans("resume", resumeDoc.text) }; const job = normalizeJob(jobInput); const resume = normalizeResume(resumeInput); const matrix = buildEvidenceMatrix(job, resume); const score = matrix.reduce((a, r) => a + r.earnedScore, 0); const assessment = generateAssessment(job, matrix, score); const studyGuide = generateStudyGuide(job, matrix); normalizedJobSchema.parse(job); normalizedResumeSchema.parse(resume); const audit = auditOutputs(matrix, assessment, studyGuide, score, { candidate: resume.candidateName, role: job.title, employer: job.employer }); evidenceRowSchema.array().parse(matrix); auditResultSchema.parse(audit); return { id: `analysis-${Date.now()}`, job, resume, matrix, score, assessment, studyGuide, audit, provider, model, createdAt: Date.now() }; }
+## Contents
+1 Executive assessment
+2 Weighted scoring rubric
+3 Detailed fit analysis
+4 Key strengths to emphasize
+5 Main interview risks and how to manage them
+6 Interview-ready positioning statement
+7 Final recommendation
+8 Immediate preparation checklist
+9 Method and source note
 
-export function safeFileName(candidate: string | null, role: string | null, suffix: string): string { return `${(candidate || "Candidate").replace(/[^A-Za-z0-9]+/g, "_")}_${(role || "Role").replace(/[^A-Za-z0-9]+/g, "_")}_${suffix}`.replace(/_+/g, "_"); }
+---
+
+## 1. Executive assessment
+Your resume represents a documented fit score of **${score}/100** for the **${jobTitle}** role at **${employer}**. This score is determined through an evidence-based comparison of the candidate resume against stated posting criteria.
+
+${score >= 70 ? "This is a competitive, high-alignment profile with substantial direct evidence supporting core operational and domain expectations." : score >= 40 ? "This profile represents a transferable match with demonstrable strengths in select areas, though several core functional dimensions require clarification of scope and direct ownership." : "This profile indicates significant evidence gaps against enterprise-level expectations, requiring a carefully bounded interview strategy centered on transferable problem-solving rather than unsupported ownership."}
+
+> **Bottom line**
+> The interview burden is to bridge verified background achievements to the specific mandate of ${jobTitle}, highlighting direct accomplishments while navigating unstated areas with disciplined process answers.
+
+## 2. Weighted scoring rubric
+
+| Area | Weight | Score | Assessment |
+|---|---:|---:|---|
+${matrix.map((r) => `| ${r.requirement.slice(0, 45)} | ${r.maximumScore} | ${r.earnedScore} | ${r.evidenceGrade}; ${r.gapOrAmbiguity ?? "Direct evidence verified"} |`).join("\n")}
+
+## 3. Detailed fit analysis
+
+${matrix.map((r, i) => `### 3.${i + 1} ${i + 1}. ${r.requirement} — ${r.earnedScore}/${r.maximumScore}
+
+- **Posting Requirement:** ${r.requirement}
+- **Documented Evidence:** ${r.resumeEvidence[0] ? `“${r.resumeEvidence[0].quote}”` : "No direct quote documented in supplied resume."}
+- **Evidence Assessment:** ${r.evidenceGrade}. ${r.transferability} ${r.gapOrAmbiguity ? `(${r.gapOrAmbiguity})` : ""}
+- **Interview Implication:** ${r.interviewImplication}`).join("\n\n")}
+
+## 4. Key strengths to emphasize
+
+${strong.slice(0, 5).map((r) => `- **${r.requirement}:** ${r.resumeEvidence[0]?.quote ?? "Documented strength"} — Present with specific metrics, verified scope, and direct ownership.`).join("\n")}
+
+## 5. Main interview risks and how to manage them
+
+${gaps.slice(0, 4).map((r, i) => `### 5.${i + 1} Risk ${i + 1}: “You have not documented direct ownership of ${r.requirement}”
+- **Panel Concern:** The committee will probe whether you have handled this specific scope independently.
+- **Response Strategy:** Acknowledge the boundary candidly, articulate transferable methodologies, and outline the exact structured protocol you would apply.`).join("\n\n")}
+
+## 6. Interview-ready positioning statement
+
+“My background connects verified experience in operational discipline, problem-solving, and continuous improvement with the mandate of ${jobTitle}. Where I have direct ownership, I bring measurable results and reliable execution. Where specialized program details or unstated areas exist, I bring structured learning, stakeholder collaboration, and disciplined governance.”
+
+## 7. Final recommendation
+
+**${score >= 60 ? "Strong candidate for targeted interview advancement." : "Focus heavily on transferable competencies and process frameworks during interview rounds."}** Review all flagged gaps prior to meeting the panel.
+
+## 8. Immediate preparation checklist
+
+- Confirm the scope, recency, and verified metrics for every Explicit/Strongly implied example.
+- Rehearse 4-5 STAR stories anchored in real operational challenges.
+- Prepare clear, bounded talking tracks for identified evidence gaps.
+- Align on key domain terminology, compliance frameworks, and organizational priorities.
+
+## 9. Method and source note
+
+This assessment is generated strictly from the supplied job description and candidate resume. Evidence grades reflect visible documentation in the source texts.`;
+}
+
+export function generateStudyGuide(job: NormalizedJob, matrix: EvidenceRow[]): string {
+  const candidateName = "Candidate";
+  const jobTitle = job.title || "Target Role";
+  const employer = job.employer || "Employer";
+  const strong = matrix.filter((r) => r.evidenceGrade !== "Absent");
+  const gaps = matrix.filter((r) => r.evidenceGrade === "Absent" || r.evidenceGrade === "Weakly implied");
+
+  return `# Interview Study Guide
+## ${jobTitle} — ${employer}
+**Candidate:** ${candidateName}
+**Purpose:** Same-day preparation for the interview
+
+## 1. What the panel is likely looking for
+
+The panel is evaluating both functional capability and strategic leadership. For **${jobTitle}** at **${employer}**, success requires balancing operational reliability, team performance, compliance/risk governance, and measurable continuous improvement.
+
+## 2. Your strongest fit with the posting
+
+| Requirement or responsibility | Evidence from your resume | How to position it in the interview |
+|---|---|---|
+${strong.slice(0, 8).map((r) => `| ${r.requirement.slice(0, 40)} | ${r.resumeEvidence[0]?.quote ?? "Documented background"} | Frame with direct ownership, clear context, and measurable outcomes. |`).join("\n")}
+
+## 3. 60–90 second opening answer
+
+“Thank you for the opportunity to discuss the ${jobTitle} role. My career has focused on operational execution, team development, and systematic problem solving. At ${employer}, I recognize that this role requires translating strategic goals into reliable daily workflows and measurable results. I am excited to bring my structured approach, adaptability, and dedication to your team.”
+
+## 4. Core interview stories to prepare (STAR / SOAR format)
+
+### Story 1: Operational Leadership & Reliable Service Delivery
+- **Competency:** Operational Execution & Daily Oversight
+- **Situation:** Managing competing priorities under demanding service standards.
+- **Action:** Established structured communication, role clarity, and workflow tracking.
+- **Result:** Improved turnaround, minimized bottlenecks, and enhanced consistency.
+- **Takeaway:** Rigorous daily habits create stable operational foundations.
+
+### Story 2: Staff Performance & Workforce Coaching
+- **Competency:** People Leadership & Team Development
+- **Situation:** Onboarding new staff or addressing skill variance across the unit.
+- **Action:** Provided clear expectations, objective feedback, and safe coaching.
+- **Result:** Increased staff confidence, reduced errors, and strengthened team cohesion.
+- **Takeaway:** Clear expectations paired with support drives sustained performance.
+
+### Story 3: Systems Adoption & Change Management
+- **Competency:** Technology & Workflow Optimization
+- **Situation:** Implementing new software, data tracking, or procedure changes.
+- **Action:** Engaged users early, demonstrated value, and provided iterative training.
+- **Result:** High adoption rate and improved data visibility.
+- **Takeaway:** People-centered change management prevents operational disruption.
+
+### Story 4: Quality Improvement & Risk Mitigation
+- **Competency:** Data-Driven Continuous Improvement
+- **Situation:** Identifying recurring bottlenecks or quality variances.
+- **Action:** Analyzed process data, identified root causes, and deployed targeted controls.
+- **Result:** Measurable improvement in safety, accuracy, and cycle times.
+- **Takeaway:** Small data-backed adjustments yield substantial compounding gains.
+
+### Story 5: Escalation & Complex Problem Solving
+- **Competency:** Conflict Resolution & Crisis Management
+- **Situation:** High-stakes operational bottleneck or stakeholder misalignment.
+- **Action:** De-escalated, gathered objective facts, engaged key stakeholders, and resolved cleanly.
+- **Result:** Timely resolution with preserved relationships and updated preventative protocols.
+- **Takeaway:** Calm, fact-based communication resolves crises effectively.
+
+## 5. Addressing evidence gaps & sensitive questions
+
+${gaps.slice(0, 4).map((r) => `- **${r.requirement.slice(0, 45)}:** Acknowledge that this is an area for onboarding focus. Emphasize transferable problem-solving, consultation with subject-matter experts, and adherence to established policy.`).join("\n")}
+
+## 6. Key terminology, legislation, frameworks & acronyms to use naturally
+
+| Concept / Term | Meaning & Context | How to weave into answers |
+|---|---|---|
+| Continuous Quality Improvement (CQI) | Systematic data-driven process optimization | Reference when discussing workflow reviews and safety metrics |
+| Enterprise Risk Management (ERM) | Cross-functional risk identification and mitigation | Use when explaining governance and compliance safeguards |
+| Change Management (ADKAR/Prosci) | Structured transition of teams to new operating models | Highlight when discussing systems rollouts and procedural updates |
+| Key Performance Indicators (KPIs) | Quantifiable operational and quality targets | Reference when discussing team accountability and reporting |
+
+## 7. High-yield behavioural & situational mock questions with model answer outlines
+
+1. **How do you prioritize competing operational demands?**  
+   *Framework:* Assess urgency/impact -> protect safety and core deliverables -> communicate transparently -> delegate and track.
+2. **Tell us about a time you managed a difficult stakeholder or team conflict.**  
+   *Framework:* Clarify shared objectives -> listen actively -> focus on facts and policy -> agree on follow-up actions.
+3. **How do you ensure compliance with regulatory standards?**  
+   *Framework:* Clear standard operating procedures -> routine audits -> staff education -> immediate corrective action on variances.
+4. **Describe a project where you used data to improve performance.**  
+   *Framework:* Identify metric variance -> investigate root cause -> implement targeted countermeasure -> verify sustained outcome.
+
+## 8. Strategic questions to ask the panel
+
+| Question | Why it is useful |
+|---|---|
+| What are the top operational priorities for this position in the first 90 days? | Demonstrates immediate readiness to support team objectives |
+| How does leadership measure success for this unit on an ongoing basis? | Signals data awareness and accountability mindset |
+| What are the biggest opportunities for workflow optimization currently? | Shows proactive continuous improvement orientation |
+| How do interdisciplinary teams collaborate on strategic initiatives here? | Demonstrates respect for cross-functional partnerships |
+
+## 9. Same-day preparation schedule
+
+- **First 20 minutes:** Rehearse the 60-90 second opening answer and core positioning statement.
+- **Next 30 minutes:** Review the 5 STAR stories and verify key metrics/details.
+- **Next 20 minutes:** Practice talk tracks for identified evidence gaps.
+- **Final 15 minutes:** Review panel questions, rapid checklist, and closing statement.
+
+## 10. Final rapid-review checklist & Closing statement
+
+- Lead with verified experience and quantifiable impact.
+- Avoid overclaiming direct ownership of unverified criteria; frame as transferable capability.
+- Speak in structured, concise points (Situation -> Action -> Result).
+- Maintain an active, collaborative, and solution-oriented tone.
+
+**Closing Statement:**  
+“Thank you for your time today. I am very enthusiastic about the opportunity to contribute to ${employer} as ${jobTitle}. I look forward to bringing my operational discipline, team-oriented leadership, and commitment to excellence to this role.”
+
+## 11. Source note
+
+Tailored strictly from supplied job description and resume sources. All dates, metrics, and details should be confirmed before the interview.`;
+}
+
+export function makeAnalysis(jobDoc: ExtractedDocument, resumeDoc: ExtractedDocument, provider = "Local deterministic", model = "Evidence-first baseline"): AnalysisResult {
+  const jobInput = jobDoc.sourceSpans.length ? jobDoc : { ...jobDoc, sourceSpans: spans("job", jobDoc.text) };
+  const resumeInput = resumeDoc.sourceSpans.length ? resumeDoc : { ...resumeDoc, sourceSpans: spans("resume", resumeDoc.text) };
+  const job = normalizeJob(jobInput);
+  const resume = normalizeResume(resumeInput);
+  const matrix = buildEvidenceMatrix(job, resume);
+  const score = matrix.reduce((a, r) => a + r.earnedScore, 0);
+  const assessment = generateAssessment(job, matrix, score);
+  const studyGuide = generateStudyGuide(job, matrix);
+  normalizedJobSchema.parse(job);
+  normalizedResumeSchema.parse(resume);
+  const audit = auditOutputs(matrix, assessment, studyGuide, score, { candidate: resume.candidateName, role: job.title, employer: job.employer });
+  evidenceRowSchema.array().parse(matrix);
+  auditResultSchema.parse(audit);
+  return { id: `analysis-${Date.now()}`, job, resume, matrix, score, assessment, studyGuide, audit, provider, model, createdAt: Date.now() };
+}
+
+export function safeFileName(candidate: string | null, role: string | null, suffix: string): string {
+  const c = (candidate || "Candidate").replace(/[^A-Za-z0-9]+/g, "_").slice(0, 30);
+  const r = (role || "Role").replace(/[^A-Za-z0-9]+/g, "_").slice(0, 40);
+  return `${c}_${r}_${suffix}`.replace(/_+/g, "_").replace(/^_|_$/g, "");
+}

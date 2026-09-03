@@ -8,6 +8,7 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+import { ENV } from "./env";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -35,7 +36,12 @@ async function startServer() {
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   registerStorageProxy(app);
-  registerOAuthRoutes(app);
+  // Only register OAuth routes when an OAuth server is configured.
+  if (ENV.oAuthServerUrl) {
+    registerOAuthRoutes(app);
+  } else if (!ENV.isProduction) {
+    console.log("[Auth] OAuth disabled — running in dev mode with a mock user.");
+  }
   // tRPC API
   app.use(
     "/api/trpc",

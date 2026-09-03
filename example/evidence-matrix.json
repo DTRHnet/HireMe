@@ -1,0 +1,403 @@
+[
+  {
+    "id": "req-1",
+    "requirement": "Position Information",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 5,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-73",
+        "quote": "Additional information"
+      }
+    ],
+    "evidenceGrade": "Weakly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 2,
+    "maximumScore": 5,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-2",
+    "requirement": "Posting Number: \tROM26-216E",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 5,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 5,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-3",
+    "requirement": "Title: \tDirector, Transformation and Risk Projects (RFT 1.0 FTE)",
+    "category": "Leadership",
+    "mandatory": false,
+    "weight": 5,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-6",
+        "quote": "various technical domains, I have built a portfolio of personal projects, contributed to my blog, and"
+      }
+    ],
+    "evidenceGrade": "Weakly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 2,
+    "maximumScore": 5,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-4",
+    "requirement": "Position Status: \tRegular Full-time",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 5,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 5,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-5",
+    "requirement": "Job Schedule: \tDays",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-6",
+    "requirement": "Department: \tTransformation & Risk",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-7",
+    "requirement": "Union: \tNon-union",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-8",
+    "requirement": "Site: \tRoyal Ottawa Mental Health Centre",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-50",
+        "quote": "whackers, etc; Continuous maintenance of the 100 acre site throughout any weather"
+      }
+    ],
+    "evidenceGrade": "Weakly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 1,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-9",
+    "requirement": "Level of Police Check: \tCriminal Record Check",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-10",
+    "requirement": "Number of Vacancies: \t1",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-11",
+    "requirement": "About The Royal",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-12",
+    "requirement": "As one of Canada’s foremost mental health care and academic health science centres, The Royal has a clear purpose: to get more people living with mental illness into recovery faster. This is at the core of everything we do and it is driven by the passion, focus and dedication of our employees. Every day, the work that we do transforms the lives of people with mental illness through specialized mental healthcare, advocacy, research and education.",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-1",
+        "quote": "Kevin Swain 1169 March Road, Kanata, Canada"
+      }
+    ],
+    "evidenceGrade": "Strongly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 3,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-13",
+    "requirement": "About the Program",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-7",
+        "quote": "actively participated in bug bounty programs. My commitment to continuous learning is demonstrated"
+      }
+    ],
+    "evidenceGrade": "Weakly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 1,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-14",
+    "requirement": "Reporting to the Chief Operating Officer, the Director, Transformation and Risk Management provides strategic leadership for enterprise transformation, organizational planning, risk management, compliance, emergency preparedness, and corporate initiatives across The Royal.",
+    "category": "Leadership",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-5",
+        "quote": "systems administration, and infrastructure maintenance. Through hands-on exploration across"
+      }
+    ],
+    "evidenceGrade": "Strongly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 3,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-15",
+    "requirement": "Key Responsibilities",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-16",
+    "requirement": "Strategic Planning & Organizational Transformation",
+    "category": "Core requirement",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-17",
+    "requirement": "Lead enterprise strategic planning, organizational performance, and transformation initiatives aligned with the hospital's strategic plan.",
+    "category": "Leadership",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-38",
+        "quote": "Evaluated traffic data to develop targeted strategies, leading to measurable improvements"
+      }
+    ],
+    "evidenceGrade": "Weakly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 1,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-18",
+    "requirement": "Advise senior leadership using data, stakeholder input, and industry insights to support strategic decision-making.",
+    "category": "Leadership",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-8",
+        "quote": "by earning industry-recognized certifications, including CompTIA A+, Network+, and ISC²"
+      }
+    ],
+    "evidenceGrade": "Strongly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 3,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-19",
+    "requirement": "Champion change management, innovation, continuous improvement, and organizational learning.",
+    "category": "Leadership",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-7",
+        "quote": "actively participated in bug bounty programs. My commitment to continuous learning is demonstrated"
+      }
+    ],
+    "evidenceGrade": "Strongly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 3,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-20",
+    "requirement": "Build partnerships with healthcare, government, academic, and community stakeholders.",
+    "category": "Operations",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [],
+    "evidenceGrade": "Absent",
+    "transferability": "No defensible transfer claim can be made from the supplied resume.",
+    "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+    "earnedScore": 0,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-21",
+    "requirement": "Prepare strategic recommendations and reports for the Executive Leadership Team, Board Committees and Board of Directors.",
+    "category": "Leadership",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-42",
+        "quote": "Leadership role providing safe and informative training with equipment operation,"
+      }
+    ],
+    "evidenceGrade": "Weakly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 1,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-22",
+    "requirement": "Risk Management Leadership",
+    "category": "Leadership",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-42",
+        "quote": "Leadership role providing safe and informative training with equipment operation,"
+      }
+    ],
+    "evidenceGrade": "Weakly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 1,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-23",
+    "requirement": "Lead and continuously improve the Enterprise Risk Management framework.",
+    "category": "Leadership",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-38",
+        "quote": "Evaluated traffic data to develop targeted strategies, leading to measurable improvements"
+      }
+    ],
+    "evidenceGrade": "Strongly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 3,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  },
+  {
+    "id": "req-24",
+    "requirement": "Oversee risk identification, assessment, mitigation, and reporting across clinical, operational, financial, labour relations, and technology domains.",
+    "category": "Operations",
+    "mandatory": false,
+    "weight": 4,
+    "resumeEvidence": [
+      {
+        "sourceSpanId": "resume-span-5",
+        "quote": "systems administration, and infrastructure maintenance. Through hands-on exploration across"
+      }
+    ],
+    "evidenceGrade": "Weakly implied",
+    "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+    "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+    "earnedScore": 1,
+    "maximumScore": 4,
+    "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+  }
+]

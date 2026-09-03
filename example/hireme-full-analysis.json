@@ -1,0 +1,2573 @@
+{
+  "id": "analysis-1788442014386",
+  "job": {
+    "title": "Director, Transformation and Risk Projects (RFT 1.0 FTE)",
+    "employer": "The Royal.",
+    "location": null,
+    "responsibilities": [
+      {
+        "id": "req-1",
+        "text": "Position Information",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-1"
+      },
+      {
+        "id": "req-2",
+        "text": "Posting Number: \tROM26-216E",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-2"
+      },
+      {
+        "id": "req-3",
+        "text": "Title: \tDirector, Transformation and Risk Projects (RFT 1.0 FTE)",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-3"
+      },
+      {
+        "id": "req-4",
+        "text": "Position Status: \tRegular Full-time",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-4"
+      },
+      {
+        "id": "req-5",
+        "text": "Job Schedule: \tDays",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-6"
+      },
+      {
+        "id": "req-6",
+        "text": "Department: \tTransformation & Risk",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-7"
+      },
+      {
+        "id": "req-7",
+        "text": "Union: \tNon-union",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-8"
+      },
+      {
+        "id": "req-8",
+        "text": "Site: \tRoyal Ottawa Mental Health Centre",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-9"
+      },
+      {
+        "id": "req-9",
+        "text": "Level of Police Check: \tCriminal Record Check",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-10"
+      },
+      {
+        "id": "req-10",
+        "text": "Number of Vacancies: \t1",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-11"
+      },
+      {
+        "id": "req-11",
+        "text": "About The Royal",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-12"
+      },
+      {
+        "id": "req-12",
+        "text": "As one of Canada’s foremost mental health care and academic health science centres, The Royal has a clear purpose: to get more people living with mental illness into recovery faster. This is at the core of everything we do and it is driven by the passion, focus and dedication of our employees. Every day, the work that we do transforms the lives of people with mental illness through specialized mental healthcare, advocacy, research and education.",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-13"
+      },
+      {
+        "id": "req-13",
+        "text": "About the Program",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-14"
+      },
+      {
+        "id": "req-14",
+        "text": "Reporting to the Chief Operating Officer, the Director, Transformation and Risk Management provides strategic leadership for enterprise transformation, organizational planning, risk management, compliance, emergency preparedness, and corporate initiatives across The Royal.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-15"
+      },
+      {
+        "id": "req-15",
+        "text": "Key Responsibilities",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-17"
+      },
+      {
+        "id": "req-16",
+        "text": "Strategic Planning & Organizational Transformation",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-18"
+      },
+      {
+        "id": "req-17",
+        "text": "Lead enterprise strategic planning, organizational performance, and transformation initiatives aligned with the hospital's strategic plan.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-19"
+      },
+      {
+        "id": "req-18",
+        "text": "Advise senior leadership using data, stakeholder input, and industry insights to support strategic decision-making.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-20"
+      },
+      {
+        "id": "req-19",
+        "text": "Champion change management, innovation, continuous improvement, and organizational learning.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-21"
+      },
+      {
+        "id": "req-20",
+        "text": "Build partnerships with healthcare, government, academic, and community stakeholders.",
+        "category": "Operations",
+        "mandatory": false,
+        "sourceSpanId": "job-span-22"
+      },
+      {
+        "id": "req-21",
+        "text": "Prepare strategic recommendations and reports for the Executive Leadership Team, Board Committees and Board of Directors.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-23"
+      },
+      {
+        "id": "req-22",
+        "text": "Risk Management Leadership",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-24"
+      },
+      {
+        "id": "req-23",
+        "text": "Lead and continuously improve the Enterprise Risk Management framework.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-25"
+      },
+      {
+        "id": "req-24",
+        "text": "Oversee risk identification, assessment, mitigation, and reporting across clinical, operational, financial, labour relations, and technology domains.",
+        "category": "Operations",
+        "mandatory": false,
+        "sourceSpanId": "job-span-26"
+      }
+    ],
+    "mandatoryRequirements": [],
+    "preferredRequirements": [
+      {
+        "id": "req-1",
+        "text": "Position Information",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-1"
+      },
+      {
+        "id": "req-2",
+        "text": "Posting Number: \tROM26-216E",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-2"
+      },
+      {
+        "id": "req-3",
+        "text": "Title: \tDirector, Transformation and Risk Projects (RFT 1.0 FTE)",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-3"
+      },
+      {
+        "id": "req-4",
+        "text": "Position Status: \tRegular Full-time",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-4"
+      },
+      {
+        "id": "req-5",
+        "text": "Job Schedule: \tDays",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-6"
+      },
+      {
+        "id": "req-6",
+        "text": "Department: \tTransformation & Risk",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-7"
+      },
+      {
+        "id": "req-7",
+        "text": "Union: \tNon-union",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-8"
+      },
+      {
+        "id": "req-8",
+        "text": "Site: \tRoyal Ottawa Mental Health Centre",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-9"
+      },
+      {
+        "id": "req-9",
+        "text": "Level of Police Check: \tCriminal Record Check",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-10"
+      },
+      {
+        "id": "req-10",
+        "text": "Number of Vacancies: \t1",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-11"
+      },
+      {
+        "id": "req-11",
+        "text": "About The Royal",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-12"
+      },
+      {
+        "id": "req-12",
+        "text": "As one of Canada’s foremost mental health care and academic health science centres, The Royal has a clear purpose: to get more people living with mental illness into recovery faster. This is at the core of everything we do and it is driven by the passion, focus and dedication of our employees. Every day, the work that we do transforms the lives of people with mental illness through specialized mental healthcare, advocacy, research and education.",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-13"
+      },
+      {
+        "id": "req-13",
+        "text": "About the Program",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-14"
+      },
+      {
+        "id": "req-14",
+        "text": "Reporting to the Chief Operating Officer, the Director, Transformation and Risk Management provides strategic leadership for enterprise transformation, organizational planning, risk management, compliance, emergency preparedness, and corporate initiatives across The Royal.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-15"
+      },
+      {
+        "id": "req-15",
+        "text": "Key Responsibilities",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-17"
+      },
+      {
+        "id": "req-16",
+        "text": "Strategic Planning & Organizational Transformation",
+        "category": "Core requirement",
+        "mandatory": false,
+        "sourceSpanId": "job-span-18"
+      },
+      {
+        "id": "req-17",
+        "text": "Lead enterprise strategic planning, organizational performance, and transformation initiatives aligned with the hospital's strategic plan.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-19"
+      },
+      {
+        "id": "req-18",
+        "text": "Advise senior leadership using data, stakeholder input, and industry insights to support strategic decision-making.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-20"
+      },
+      {
+        "id": "req-19",
+        "text": "Champion change management, innovation, continuous improvement, and organizational learning.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-21"
+      },
+      {
+        "id": "req-20",
+        "text": "Build partnerships with healthcare, government, academic, and community stakeholders.",
+        "category": "Operations",
+        "mandatory": false,
+        "sourceSpanId": "job-span-22"
+      },
+      {
+        "id": "req-21",
+        "text": "Prepare strategic recommendations and reports for the Executive Leadership Team, Board Committees and Board of Directors.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-23"
+      },
+      {
+        "id": "req-22",
+        "text": "Risk Management Leadership",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-24"
+      },
+      {
+        "id": "req-23",
+        "text": "Lead and continuously improve the Enterprise Risk Management framework.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-25"
+      },
+      {
+        "id": "req-24",
+        "text": "Oversee risk identification, assessment, mitigation, and reporting across clinical, operational, financial, labour relations, and technology domains.",
+        "category": "Operations",
+        "mandatory": false,
+        "sourceSpanId": "job-span-26"
+      }
+    ],
+    "certifications": [],
+    "education": [],
+    "systems": [],
+    "regulations": [
+      {
+        "id": "req-14",
+        "text": "Reporting to the Chief Operating Officer, the Director, Transformation and Risk Management provides strategic leadership for enterprise transformation, organizational planning, risk management, compliance, emergency preparedness, and corporate initiatives across The Royal.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-15"
+      }
+    ],
+    "leadershipExpectations": [
+      {
+        "id": "req-3",
+        "text": "Title: \tDirector, Transformation and Risk Projects (RFT 1.0 FTE)",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-3"
+      },
+      {
+        "id": "req-14",
+        "text": "Reporting to the Chief Operating Officer, the Director, Transformation and Risk Management provides strategic leadership for enterprise transformation, organizational planning, risk management, compliance, emergency preparedness, and corporate initiatives across The Royal.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-15"
+      },
+      {
+        "id": "req-17",
+        "text": "Lead enterprise strategic planning, organizational performance, and transformation initiatives aligned with the hospital's strategic plan.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-19"
+      },
+      {
+        "id": "req-18",
+        "text": "Advise senior leadership using data, stakeholder input, and industry insights to support strategic decision-making.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-20"
+      },
+      {
+        "id": "req-19",
+        "text": "Champion change management, innovation, continuous improvement, and organizational learning.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-21"
+      },
+      {
+        "id": "req-21",
+        "text": "Prepare strategic recommendations and reports for the Executive Leadership Team, Board Committees and Board of Directors.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-23"
+      },
+      {
+        "id": "req-22",
+        "text": "Risk Management Leadership",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-24"
+      },
+      {
+        "id": "req-23",
+        "text": "Lead and continuously improve the Enterprise Risk Management framework.",
+        "category": "Leadership",
+        "mandatory": false,
+        "sourceSpanId": "job-span-25"
+      }
+    ],
+    "operationalExpectations": [
+      {
+        "id": "req-20",
+        "text": "Build partnerships with healthcare, government, academic, and community stakeholders.",
+        "category": "Operations",
+        "mandatory": false,
+        "sourceSpanId": "job-span-22"
+      },
+      {
+        "id": "req-24",
+        "text": "Oversee risk identification, assessment, mitigation, and reporting across clinical, operational, financial, labour relations, and technology domains.",
+        "category": "Operations",
+        "mandatory": false,
+        "sourceSpanId": "job-span-26"
+      }
+    ],
+    "keywords": [
+      "position",
+      "information",
+      "posting",
+      "number",
+      "rom26-216e",
+      "title",
+      "director",
+      "transformation",
+      "risk",
+      "projects",
+      "rft",
+      "fte",
+      "status",
+      "regular",
+      "full-time",
+      "schedule",
+      "days",
+      "department",
+      "union",
+      "non-union",
+      "site",
+      "royal",
+      "ottawa",
+      "mental",
+      "health",
+      "centre",
+      "level",
+      "police",
+      "check",
+      "criminal",
+      "record",
+      "vacancies",
+      "one",
+      "canada",
+      "foremost",
+      "care",
+      "academic",
+      "science",
+      "centres",
+      "clear"
+    ],
+    "rawText": "Position Information\nPosting Number: \tROM26-216E\nTitle: \tDirector, Transformation and Risk Projects (RFT 1.0 FTE)\nPosition Status: \tRegular Full-time\nFTE: \t1.0\nJob Schedule: \tDays\nDepartment: \tTransformation & Risk\nUnion: \tNon-union\nSite: \tRoyal Ottawa Mental Health Centre\nLevel of Police Check: \tCriminal Record Check\nNumber of Vacancies: \t1\n\nAbout The Royal\n\nAs one of Canada’s foremost mental health care and academic health science centres, The Royal has a clear purpose: to get more people living with mental illness into recovery faster. This is at the core of everything we do and it is driven by the passion, focus and dedication of our employees. Every day, the work that we do transforms the lives of people with mental illness through specialized mental healthcare, advocacy, research and education.\n\nAbout the Program\n\nReporting to the Chief Operating Officer, the Director, Transformation and Risk Management provides strategic leadership for enterprise transformation, organizational planning, risk management, compliance, emergency preparedness, and corporate initiatives across The Royal.\n\n \n\nKey Responsibilities\n\nStrategic Planning & Organizational Transformation\n\n    Lead enterprise strategic planning, organizational performance, and transformation initiatives aligned with the hospital's strategic plan.\n    Advise senior leadership using data, stakeholder input, and industry insights to support strategic decision-making.\n    Champion change management, innovation, continuous improvement, and organizational learning.\n    Build partnerships with healthcare, government, academic, and community stakeholders.\n    Prepare strategic recommendations and reports for the Executive Leadership Team, Board Committees and Board of Directors.\n\nRisk Management Leadership\n\n    Lead and continuously improve the Enterprise Risk Management framework.\n    Oversee risk identification, assessment, mitigation, and reporting across clinical, operational, financial, labour relations, and technology domains.\n    Ensure compliance with legislation, regulatory requirements, accreditation standards, hospital policies, and collective agreements.\n    Partner with Legal Services, HR, Labour Relations, and technology leaders to strengthen governance, policy management, privacy, and compliance.\n\nEmergency Management\n\n    Provide strategic oversight of emergency preparedness, response, recovery, and mitigation activities.\n    Ensure compliance with Accreditation Canada standards and applicable legislation.\n    Lead organizational readiness activities, emergency exercises, and external emergency management partnerships.\n    Oversee hazard identification and risk assessment (HIRA) activities and organizational readiness programs \n    Support Incident Management System (IMS) and Incident Command System (ICS) readiness and leadership development. \n\nPortfolio Financial Stewardship & Human Resources Management\n\n    Lead portfolio planning, budgeting, financial stewardship, and sustainability initiatives.\n    Develop business cases, cost-benefit analyses, and ROI evaluations to support strategic investments.\n    Lead, mentor, and develop staff while supporting workforce planning, recruitment, and performance management.\n\nEpic Program Sustainability\n\n    Lead post-go-live Epic governance, optimization, and long-term sustainability.\n    Monitor Epic utilization and adoption metrics and prioritize enhancement requests.\n    Ensure Epic capabilities are fully leveraged, including Key Performance Indicators and system reliability.\n\nQualifications\n\n    Master's degree in a relevant discipline (e.g., Master of Health Administration (MHA), Master of Business Administration (MBA), Master of Public Health (MPH).\n    10+ years of progressive leadership experience in healthcare transformation, risk management, or operational leadership within a hospital or healthcare system in Ontario.\n    Demonstrated experience leading complex, multi-stakeholder change initiatives with measurable impact.\n    Preferred:  Certified Healthcare Executive (CHE), Professional designations e.g., Project Management Professional (PMP), Canadian Risk Management (CRM) or Prosci Change Management Certification (PROSCI)\n\nKnowledge and Skills\n\n    In-depth knowledge of Ontario's healthcare regulatory environment, funding models, risk governance, and quality improvement methodologies.\n    Strong analytical, problem-solving, and strategic thinking skills in a complex healthcare environment.\n    Proven ability to influence and collaborate with executive leaders, clinicians, union representatives, and healthcare partners.\n    Advanced financial and business acumen, including business case development, budgeting, and cost-benefit analysis.\n    Demonstrated experience leading large-scale transformation, project, and change management initiatives.\n\nLanguage Requirements\n\nEnglish level A- is mandatory in oral expression, oral comprehension, reading comprehension and written expression. Bilingual (French/English) is preferred.\nBenefits\n \nAt The Royal, we are committed to supporting your health, well-being, and financial security at every stage of your career through a comprehensive total rewards package that may include:\n \n\n    HOOPP, one of Canada's leading defined benefit pension plans, helping you build long-term financial security with a predictable lifetime retirement income and valuable employer contributions.\n    Competitive health and dental benefits through Medavie Blue Cross (MBC), supporting you and your family's health and wellness needs;\n    Life insurance and disability coverage through Manulife, including short-term and long-term disability benefits where applicable, providing added peace of mind;\n    Employee and Family Assistance Program (EFAP) through Telus Health, offering confidential counselling, wellness resources, and support services for you and your eligible family members (excluded casual staff).\n\n \nTogether, these benefits reflect our commitment to helping you thrive personally and professionally—today, tomorrow, and throughout your career at The Royal.\n\nSalary Range: \t$80.18 to  $92.95 per hour\n\nAdditional Information\n\n    All applicants must provide a recent resume that clearly indicate that they meet the required qualifications.\n    Please apply by clicking on the Apply button below.\n    The Royal sincerely thanks all applicants for their interest in a career with us; however, only those applicants selected for an interview will be contacted.\n    All new hires will be required to obtain a clear and valid Criminal Record or Vulnerable Sector Records Check as a pre-condition of employment.\n    The Royal Ottawa Health Care Group is committed to equity and inclusion in the workplace. Our commitment is rooted in the belief that a diverse workforce enhances the quality of care and organizational strength. We encourage applications from members of equity-deserving communities and welcome individuals from all backgrounds. Upon request, accommodations due to disability are available throughout the recruitment process.",
+    "sourceSpans": [
+      {
+        "id": "job-span-1",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Position Information",
+        "start": 0,
+        "end": 20
+      },
+      {
+        "id": "job-span-2",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Posting Number: \tROM26-216E",
+        "start": 21,
+        "end": 48
+      },
+      {
+        "id": "job-span-3",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Title: \tDirector, Transformation and Risk Projects (RFT 1.0 FTE)",
+        "start": 49,
+        "end": 113
+      },
+      {
+        "id": "job-span-4",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Position Status: \tRegular Full-time",
+        "start": 114,
+        "end": 149
+      },
+      {
+        "id": "job-span-5",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "FTE: \t1.0",
+        "start": 150,
+        "end": 159
+      },
+      {
+        "id": "job-span-6",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Job Schedule: \tDays",
+        "start": 160,
+        "end": 179
+      },
+      {
+        "id": "job-span-7",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Department: \tTransformation & Risk",
+        "start": 180,
+        "end": 214
+      },
+      {
+        "id": "job-span-8",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Union: \tNon-union",
+        "start": 215,
+        "end": 232
+      },
+      {
+        "id": "job-span-9",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Site: \tRoyal Ottawa Mental Health Centre",
+        "start": 233,
+        "end": 273
+      },
+      {
+        "id": "job-span-10",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Level of Police Check: \tCriminal Record Check",
+        "start": 274,
+        "end": 319
+      },
+      {
+        "id": "job-span-11",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Number of Vacancies: \t1",
+        "start": 320,
+        "end": 343
+      },
+      {
+        "id": "job-span-12",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "About The Royal",
+        "start": 345,
+        "end": 360
+      },
+      {
+        "id": "job-span-13",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "As one of Canada’s foremost mental health care and academic health science centres, The Royal has a clear purpose: to get more people living with mental illness into recovery faster. This is at the core of everything we do and it is driven by the passion, focus and dedication of our employees. Every day, the work that we do transforms the lives of people with mental illness through specialized mental healthcare, advocacy, research and education.",
+        "start": 362,
+        "end": 811
+      },
+      {
+        "id": "job-span-14",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "About the Program",
+        "start": 813,
+        "end": 830
+      },
+      {
+        "id": "job-span-15",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Reporting to the Chief Operating Officer, the Director, Transformation and Risk Management provides strategic leadership for enterprise transformation, organizational planning, risk management, compliance, emergency preparedness, and corporate initiatives across The Royal.",
+        "start": 832,
+        "end": 1105
+      },
+      {
+        "id": "job-span-17",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Key Responsibilities",
+        "start": 1110,
+        "end": 1130
+      },
+      {
+        "id": "job-span-18",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Strategic Planning & Organizational Transformation",
+        "start": 1132,
+        "end": 1182
+      },
+      {
+        "id": "job-span-19",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Lead enterprise strategic planning, organizational performance, and transformation initiatives aligned with the hospital's strategic plan.",
+        "start": 1184,
+        "end": 1326
+      },
+      {
+        "id": "job-span-20",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Advise senior leadership using data, stakeholder input, and industry insights to support strategic decision-making.",
+        "start": 1327,
+        "end": 1446
+      },
+      {
+        "id": "job-span-21",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Champion change management, innovation, continuous improvement, and organizational learning.",
+        "start": 1447,
+        "end": 1543
+      },
+      {
+        "id": "job-span-22",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Build partnerships with healthcare, government, academic, and community stakeholders.",
+        "start": 1544,
+        "end": 1633
+      },
+      {
+        "id": "job-span-23",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Prepare strategic recommendations and reports for the Executive Leadership Team, Board Committees and Board of Directors.",
+        "start": 1634,
+        "end": 1759
+      },
+      {
+        "id": "job-span-24",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Risk Management Leadership",
+        "start": 1761,
+        "end": 1787
+      },
+      {
+        "id": "job-span-25",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Lead and continuously improve the Enterprise Risk Management framework.",
+        "start": 1789,
+        "end": 1864
+      },
+      {
+        "id": "job-span-26",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Oversee risk identification, assessment, mitigation, and reporting across clinical, operational, financial, labour relations, and technology domains.",
+        "start": 1865,
+        "end": 2018
+      },
+      {
+        "id": "job-span-27",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Ensure compliance with legislation, regulatory requirements, accreditation standards, hospital policies, and collective agreements.",
+        "start": 2019,
+        "end": 2154
+      },
+      {
+        "id": "job-span-28",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Partner with Legal Services, HR, Labour Relations, and technology leaders to strengthen governance, policy management, privacy, and compliance.",
+        "start": 2155,
+        "end": 2302
+      },
+      {
+        "id": "job-span-29",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Emergency Management",
+        "start": 2304,
+        "end": 2324
+      },
+      {
+        "id": "job-span-30",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Provide strategic oversight of emergency preparedness, response, recovery, and mitigation activities.",
+        "start": 2326,
+        "end": 2431
+      },
+      {
+        "id": "job-span-31",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Ensure compliance with Accreditation Canada standards and applicable legislation.",
+        "start": 2432,
+        "end": 2517
+      },
+      {
+        "id": "job-span-32",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Lead organizational readiness activities, emergency exercises, and external emergency management partnerships.",
+        "start": 2518,
+        "end": 2632
+      },
+      {
+        "id": "job-span-33",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Oversee hazard identification and risk assessment (HIRA) activities and organizational readiness programs",
+        "start": 2633,
+        "end": 2743
+      },
+      {
+        "id": "job-span-34",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Support Incident Management System (IMS) and Incident Command System (ICS) readiness and leadership development.",
+        "start": 2744,
+        "end": 2861
+      },
+      {
+        "id": "job-span-35",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Portfolio Financial Stewardship & Human Resources Management",
+        "start": 2863,
+        "end": 2923
+      },
+      {
+        "id": "job-span-36",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Lead portfolio planning, budgeting, financial stewardship, and sustainability initiatives.",
+        "start": 2925,
+        "end": 3019
+      },
+      {
+        "id": "job-span-37",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Develop business cases, cost-benefit analyses, and ROI evaluations to support strategic investments.",
+        "start": 3020,
+        "end": 3124
+      },
+      {
+        "id": "job-span-38",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Lead, mentor, and develop staff while supporting workforce planning, recruitment, and performance management.",
+        "start": 3125,
+        "end": 3238
+      },
+      {
+        "id": "job-span-39",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Epic Program Sustainability",
+        "start": 3240,
+        "end": 3267
+      },
+      {
+        "id": "job-span-40",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Lead post-go-live Epic governance, optimization, and long-term sustainability.",
+        "start": 3269,
+        "end": 3351
+      },
+      {
+        "id": "job-span-41",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Monitor Epic utilization and adoption metrics and prioritize enhancement requests.",
+        "start": 3352,
+        "end": 3438
+      },
+      {
+        "id": "job-span-42",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Ensure Epic capabilities are fully leveraged, including Key Performance Indicators and system reliability.",
+        "start": 3439,
+        "end": 3549
+      },
+      {
+        "id": "job-span-43",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Qualifications",
+        "start": 3551,
+        "end": 3565
+      },
+      {
+        "id": "job-span-44",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Master's degree in a relevant discipline (e.g., Master of Health Administration (MHA), Master of Business Administration (MBA), Master of Public Health (MPH).",
+        "start": 3567,
+        "end": 3729
+      },
+      {
+        "id": "job-span-45",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "10+ years of progressive leadership experience in healthcare transformation, risk management, or operational leadership within a hospital or healthcare system in Ontario.",
+        "start": 3730,
+        "end": 3904
+      },
+      {
+        "id": "job-span-46",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Demonstrated experience leading complex, multi-stakeholder change initiatives with measurable impact.",
+        "start": 3905,
+        "end": 4010
+      },
+      {
+        "id": "job-span-47",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Preferred:  Certified Healthcare Executive (CHE), Professional designations e.g., Project Management Professional (PMP), Canadian Risk Management (CRM) or Prosci Change Management Certification (PROSCI)",
+        "start": 4011,
+        "end": 4217
+      },
+      {
+        "id": "job-span-48",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Knowledge and Skills",
+        "start": 4219,
+        "end": 4239
+      },
+      {
+        "id": "job-span-49",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "In-depth knowledge of Ontario's healthcare regulatory environment, funding models, risk governance, and quality improvement methodologies.",
+        "start": 4241,
+        "end": 4383
+      },
+      {
+        "id": "job-span-50",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Strong analytical, problem-solving, and strategic thinking skills in a complex healthcare environment.",
+        "start": 4384,
+        "end": 4490
+      },
+      {
+        "id": "job-span-51",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Proven ability to influence and collaborate with executive leaders, clinicians, union representatives, and healthcare partners.",
+        "start": 4491,
+        "end": 4622
+      },
+      {
+        "id": "job-span-52",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Advanced financial and business acumen, including business case development, budgeting, and cost-benefit analysis.",
+        "start": 4623,
+        "end": 4741
+      },
+      {
+        "id": "job-span-53",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Demonstrated experience leading large-scale transformation, project, and change management initiatives.",
+        "start": 4742,
+        "end": 4849
+      },
+      {
+        "id": "job-span-54",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Language Requirements",
+        "start": 4851,
+        "end": 4872
+      },
+      {
+        "id": "job-span-55",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "English level A- is mandatory in oral expression, oral comprehension, reading comprehension and written expression. Bilingual (French/English) is preferred.",
+        "start": 4874,
+        "end": 5030
+      },
+      {
+        "id": "job-span-56",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Benefits",
+        "start": 5031,
+        "end": 5039
+      },
+      {
+        "id": "job-span-58",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "At The Royal, we are committed to supporting your health, well-being, and financial security at every stage of your career through a comprehensive total rewards package that may include:",
+        "start": 5042,
+        "end": 5228
+      },
+      {
+        "id": "job-span-60",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "HOOPP, one of Canada's leading defined benefit pension plans, helping you build long-term financial security with a predictable lifetime retirement income and valuable employer contributions.",
+        "start": 5232,
+        "end": 5427
+      },
+      {
+        "id": "job-span-61",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Competitive health and dental benefits through Medavie Blue Cross (MBC), supporting you and your family's health and wellness needs;",
+        "start": 5428,
+        "end": 5564
+      },
+      {
+        "id": "job-span-62",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Life insurance and disability coverage through Manulife, including short-term and long-term disability benefits where applicable, providing added peace of mind;",
+        "start": 5565,
+        "end": 5729
+      },
+      {
+        "id": "job-span-63",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Employee and Family Assistance Program (EFAP) through Telus Health, offering confidential counselling, wellness resources, and support services for you and your eligible family members (excluded casual staff).",
+        "start": 5730,
+        "end": 5943
+      },
+      {
+        "id": "job-span-65",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Together, these benefits reflect our commitment to helping you thrive personally and professionally—today, tomorrow, and throughout your career at The Royal.",
+        "start": 5947,
+        "end": 6104
+      },
+      {
+        "id": "job-span-66",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Salary Range: \t$80.18 to  $92.95 per hour",
+        "start": 6106,
+        "end": 6147
+      },
+      {
+        "id": "job-span-67",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Additional Information",
+        "start": 6149,
+        "end": 6171
+      },
+      {
+        "id": "job-span-68",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "All applicants must provide a recent resume that clearly indicate that they meet the required qualifications.",
+        "start": 6173,
+        "end": 6286
+      },
+      {
+        "id": "job-span-69",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "Please apply by clicking on the Apply button below.",
+        "start": 6287,
+        "end": 6342
+      },
+      {
+        "id": "job-span-70",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "The Royal sincerely thanks all applicants for their interest in a career with us; however, only those applicants selected for an interview will be contacted.",
+        "start": 6343,
+        "end": 6504
+      },
+      {
+        "id": "job-span-71",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "All new hires will be required to obtain a clear and valid Criminal Record or Vulnerable Sector Records Check as a pre-condition of employment.",
+        "start": 6505,
+        "end": 6652
+      },
+      {
+        "id": "job-span-72",
+        "source": "job",
+        "section": null,
+        "page": null,
+        "text": "The Royal Ottawa Health Care Group is committed to equity and inclusion in the workplace. Our commitment is rooted in the belief that a diverse workforce enhances the quality of care and organizational strength. We encourage applications from members of equity-deserving communities and welcome individuals from all backgrounds. Upon request, accommodations due to disability are available throughout the recruitment process.",
+        "start": 6653,
+        "end": 7082
+      }
+    ]
+  },
+  "resume": {
+    "candidateName": "Kevin Swain 1169 March Road, Kanata, Canada",
+    "contact": {
+      "email": "admin@dtrh.net",
+      "phone": "613) 893-1757",
+      "location": null
+    },
+    "summary": "Kevin Swain 1169 March Road, Kanata, Canada\n(613) 893-1757\nadmin@dtrh.net\nDetail-oriented and self-driven IT enthusiast with a deep passion for coding, web design, Cybersecurity,\nsystems administration, and infrastructure maintenance. Through hands-on exploration across\nvarious technical domains, I have built a portfolio of personal projects, contributed to my blog, and\nactively participated in bug bounty programs. My commitment to continuous learning is demonstrated\nby earning industry-recognized certifications, including CompTIA A+, Network+, and ISC²\nCybersecurity.\nEducation\nSt Lawrence College, Kingston\nON, 2017 - Jun 2019\nWind Turbine / Industrial Electrician\nBursary student hired by the college over the summer to upgrade lab stations and\nother relevant work. Participated and acted as a representative for the Wind\nTurbine Technician course.\nSkills\nPython \tShell Scripting \tPowerShell \tHTML\nCSS \tJavaScript \tC++ \tPHP\nTroubleshooting \tNetworking \tArtificial Intelligence \tSQLite\nPostgreSQL \tElectrical Experience \tSoldering \tPenetration Testing\nBug Bounty \tReport Writing\nEmployment history\nTraffic Control\nEngineer, Thomas\nCavanagh Construction\nLTD, Aug 2022 - Present\nAshton, ON\nLandscaper, Cataraqui\nCemetery and Funeral\nServices, May 2021 - Jul\n2023\nKingston, Ontario\nDirects traffic flow to ensure safety and efficiency, minimizing delays and disruptions.\nCollaborates with construction teams to implement effective traffic control plans.\nMonitors and adjusts traffic signals, improving travel times and reducing congestion.\nAnalyzes traffic patterns to identify and resolve bottlenecks, enhancing road safety.\nEvaluated traffic data to develop targeted strategies, leading to measurable improvements\nin traffic flow and enhanced safety standards.\nFostered strong communication with construction teams, ensuring seamless\nimplementation of traffic control measures and promoting team cohesion.\nLeadership role providing safe and informative training with equipment operation,\nexpectations and day to day operations with new hires and student workers.\nAssisted in concrete foundation pouring\nAssisted the mini-excavator operator in closing funteral services, filling holes, digging\nholes, cleaning area and putting headstone in place\nInterpreted drawings of previously misplaced ground stones and worked effectively to\nrectify these mistakes\nOperate varios equipment including 0-turn lawn mowers, manual lawn mowers, weed\nwhackers, etc; Continuous maintenance of the 100 acre site throughout any weather\nconditions.",
+    "education": [
+      {
+        "text": "St Lawrence College, Kingston",
+        "category": "Education",
+        "sourceSpanId": "resume-span-11",
+        "originalDate": null
+      },
+      {
+        "text": "Bursary student hired by the college over the summer to upgrade lab stations and",
+        "category": "Education",
+        "sourceSpanId": "resume-span-14",
+        "originalDate": null
+      }
+    ],
+    "registrations": [
+      {
+        "text": "Obtained forklift license for typical warehouse duties including shipping, recieving,",
+        "category": "Registration",
+        "sourceSpanId": "resume-span-78",
+        "originalDate": null
+      }
+    ],
+    "certifications": [
+      {
+        "text": "by earning industry-recognized certifications, including CompTIA A+, Network+, and ISC²",
+        "category": "Certification",
+        "sourceSpanId": "resume-span-8",
+        "originalDate": null
+      },
+      {
+        "text": "Certifications \t• CompTIA A+ Core 1",
+        "category": "Certification",
+        "sourceSpanId": "resume-span-74",
+        "originalDate": null
+      },
+      {
+        "text": "ISC2 Cybersecurity Certification",
+        "category": "Certification",
+        "sourceSpanId": null,
+        "originalDate": null
+      }
+    ],
+    "skills": [],
+    "systems": [
+      {
+        "text": "systems administration, and infrastructure maintenance. Through hands-on exploration across",
+        "category": "System",
+        "sourceSpanId": "resume-span-5",
+        "originalDate": null
+      },
+      {
+        "text": "Troubleshooting \tNetworking \tArtificial Intelligence \tSQLite",
+        "category": "System",
+        "sourceSpanId": "resume-span-20",
+        "originalDate": null
+      },
+      {
+        "text": "PostgreSQL \tElectrical Experience \tSoldering \tPenetration Testing",
+        "category": "System",
+        "sourceSpanId": "resume-span-21",
+        "originalDate": null
+      },
+      {
+        "text": "Utilized computer system to effectively prioritize orders based on their expected shipping",
+        "category": "System",
+        "sourceSpanId": "resume-span-80",
+        "originalDate": null
+      }
+    ],
+    "employmentHistory": [
+      {
+        "role": "ON, 2017 - Jun 2019",
+        "employer": null,
+        "dates": "2017 - Jun 2019",
+        "bullets": []
+      },
+      {
+        "role": "LTD, Aug 2022 - Present",
+        "employer": null,
+        "dates": "2022 - Present",
+        "bullets": []
+      },
+      {
+        "role": "Services, May 2021 - Jul",
+        "employer": null,
+        "dates": "2021 - Jul",
+        "bullets": []
+      },
+      {
+        "role": "Feb 2021 - May 2021",
+        "employer": null,
+        "dates": "2021 - May 2021",
+        "bullets": []
+      }
+    ],
+    "leadership": [
+      {
+        "text": "Evaluated traffic data to develop targeted strategies, leading to measurable improvements",
+        "category": "Leadership",
+        "sourceSpanId": "resume-span-38",
+        "originalDate": null
+      },
+      {
+        "text": "Leadership role providing safe and informative training with equipment operation,",
+        "category": "Leadership",
+        "sourceSpanId": "resume-span-42",
+        "originalDate": null
+      }
+    ],
+    "operations": [
+      {
+        "text": "various technical domains, I have built a portfolio of personal projects, contributed to my blog, and",
+        "category": "Operations",
+        "sourceSpanId": "resume-span-6",
+        "originalDate": null
+      },
+      {
+        "text": "Leadership role providing safe and informative training with equipment operation,",
+        "category": "Operations",
+        "sourceSpanId": "resume-span-42",
+        "originalDate": null
+      },
+      {
+        "text": "expectations and day to day operations with new hires and student workers.",
+        "category": "Operations",
+        "sourceSpanId": "resume-span-43",
+        "originalDate": null
+      },
+      {
+        "text": "Assisted the mini-excavator operator in closing funteral services, filling holes, digging",
+        "category": "Operations",
+        "sourceSpanId": "resume-span-45",
+        "originalDate": null
+      },
+      {
+        "text": "Operate varios equipment including 0-turn lawn mowers, manual lawn mowers, weed",
+        "category": "Operations",
+        "sourceSpanId": "resume-span-49",
+        "originalDate": null
+      }
+    ],
+    "qualityImprovement": [
+      {
+        "text": "Monitors and adjusts traffic signals, improving travel times and reducing congestion.",
+        "category": "Quality",
+        "sourceSpanId": "resume-span-36",
+        "originalDate": null
+      },
+      {
+        "text": "Evaluated traffic data to develop targeted strategies, leading to measurable improvements",
+        "category": "Quality",
+        "sourceSpanId": "resume-span-38",
+        "originalDate": null
+      }
+    ],
+    "stakeholderExperience": [],
+    "rawText": "Kevin Swain 1169 March Road, Kanata, Canada\n(613) 893-1757\nadmin@dtrh.net\nDetail-oriented and self-driven IT enthusiast with a deep passion for coding, web design, Cybersecurity,\nsystems administration, and infrastructure maintenance. Through hands-on exploration across\nvarious technical domains, I have built a portfolio of personal projects, contributed to my blog, and\nactively participated in bug bounty programs. My commitment to continuous learning is demonstrated\nby earning industry-recognized certifications, including CompTIA A+, Network+, and ISC²\nCybersecurity.\nEducation\nSt Lawrence College, Kingston\nON, 2017 - Jun 2019\nWind Turbine / Industrial Electrician\nBursary student hired by the college over the summer to upgrade lab stations and\nother relevant work. Participated and acted as a representative for the Wind\nTurbine Technician course.\nSkills\nPython \tShell Scripting \tPowerShell \tHTML\nCSS \tJavaScript \tC++ \tPHP\nTroubleshooting \tNetworking \tArtificial Intelligence \tSQLite\nPostgreSQL \tElectrical Experience \tSoldering \tPenetration Testing\nBug Bounty \tReport Writing\nEmployment history\nTraffic Control\nEngineer, Thomas\nCavanagh Construction\nLTD, Aug 2022 - Present\nAshton, ON\nLandscaper, Cataraqui\nCemetery and Funeral\nServices, May 2021 - Jul\n2023\nKingston, Ontario\nDirects traffic flow to ensure safety and efficiency, minimizing delays and disruptions.\nCollaborates with construction teams to implement effective traffic control plans.\nMonitors and adjusts traffic signals, improving travel times and reducing congestion.\nAnalyzes traffic patterns to identify and resolve bottlenecks, enhancing road safety.\nEvaluated traffic data to develop targeted strategies, leading to measurable improvements\nin traffic flow and enhanced safety standards.\nFostered strong communication with construction teams, ensuring seamless\nimplementation of traffic control measures and promoting team cohesion.\nLeadership role providing safe and informative training with equipment operation,\nexpectations and day to day operations with new hires and student workers.\nAssisted in concrete foundation pouring\nAssisted the mini-excavator operator in closing funteral services, filling holes, digging\nholes, cleaning area and putting headstone in place\nInterpreted drawings of previously misplaced ground stones and worked effectively to\nrectify these mistakes\nOperate varios equipment including 0-turn lawn mowers, manual lawn mowers, weed\nwhackers, etc; Continuous maintenance of the 100 acre site throughout any weather\nconditions.\n\n-- 1 of 2 --\n\nEmployment history\nShipping and\nRecieving, Haines,\nJones, and Cadbury,\nFeb 2021 - May 2021\nKingston, Ontario\nLinks\nPersonal Website/blog -\nhttps://dtrh.net\nGitHub Public Code Repo -\nhttps://github.com/DTRHne\nt\nGuitar Pro Downloader -\nHttps://gpdownloader.com\nFret Magic Guitar Trainer -\nhttps://fretmagic.gpdownloa\nder.com\nBurn Me - Self Destructing /\nSecure Notes -\nhttps://8urn.me\nAdditional information\nCertifications \t• CompTIA A+ Core 1\n• CompTIA A+ Core 2\n• ISC2 Cybersecurity Certification\n• First Aid + CPR-C\nObtained forklift license for typical warehouse duties including shipping, recieving,\nsorting, and counting inventory sold to various companies such as Walmart.\nUtilized computer system to effectively prioritize orders based on their expected shipping\ndate.\nUsed scanning guns to maintain proper inventory counts whenever shipping/recieving\nWhile picking and recieving, carefully ensured product is taken from or brought to the\ncorrect location in the warehouse.\nPrecise staging of shipments.\n\n-- 2 of 2 --",
+    "sourceSpans": [
+      {
+        "id": "resume-span-1",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Kevin Swain 1169 March Road, Kanata, Canada",
+        "start": 0,
+        "end": 43
+      },
+      {
+        "id": "resume-span-2",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "(613) 893-1757",
+        "start": 44,
+        "end": 58
+      },
+      {
+        "id": "resume-span-3",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "admin@dtrh.net",
+        "start": 59,
+        "end": 73
+      },
+      {
+        "id": "resume-span-4",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Detail-oriented and self-driven IT enthusiast with a deep passion for coding, web design, Cybersecurity,",
+        "start": 74,
+        "end": 178
+      },
+      {
+        "id": "resume-span-5",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "systems administration, and infrastructure maintenance. Through hands-on exploration across",
+        "start": 179,
+        "end": 270
+      },
+      {
+        "id": "resume-span-6",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "various technical domains, I have built a portfolio of personal projects, contributed to my blog, and",
+        "start": 271,
+        "end": 372
+      },
+      {
+        "id": "resume-span-7",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "actively participated in bug bounty programs. My commitment to continuous learning is demonstrated",
+        "start": 373,
+        "end": 471
+      },
+      {
+        "id": "resume-span-8",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "by earning industry-recognized certifications, including CompTIA A+, Network+, and ISC²",
+        "start": 472,
+        "end": 559
+      },
+      {
+        "id": "resume-span-9",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Cybersecurity.",
+        "start": 560,
+        "end": 574
+      },
+      {
+        "id": "resume-span-10",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Education",
+        "start": 575,
+        "end": 584
+      },
+      {
+        "id": "resume-span-11",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "St Lawrence College, Kingston",
+        "start": 585,
+        "end": 614
+      },
+      {
+        "id": "resume-span-12",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "ON, 2017 - Jun 2019",
+        "start": 615,
+        "end": 634
+      },
+      {
+        "id": "resume-span-13",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Wind Turbine / Industrial Electrician",
+        "start": 635,
+        "end": 672
+      },
+      {
+        "id": "resume-span-14",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Bursary student hired by the college over the summer to upgrade lab stations and",
+        "start": 673,
+        "end": 753
+      },
+      {
+        "id": "resume-span-15",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "other relevant work. Participated and acted as a representative for the Wind",
+        "start": 754,
+        "end": 830
+      },
+      {
+        "id": "resume-span-16",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Turbine Technician course.",
+        "start": 831,
+        "end": 857
+      },
+      {
+        "id": "resume-span-17",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Skills",
+        "start": 858,
+        "end": 864
+      },
+      {
+        "id": "resume-span-18",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Python \tShell Scripting \tPowerShell \tHTML",
+        "start": 865,
+        "end": 906
+      },
+      {
+        "id": "resume-span-19",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "CSS \tJavaScript \tC++ \tPHP",
+        "start": 907,
+        "end": 932
+      },
+      {
+        "id": "resume-span-20",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Troubleshooting \tNetworking \tArtificial Intelligence \tSQLite",
+        "start": 933,
+        "end": 993
+      },
+      {
+        "id": "resume-span-21",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "PostgreSQL \tElectrical Experience \tSoldering \tPenetration Testing",
+        "start": 994,
+        "end": 1059
+      },
+      {
+        "id": "resume-span-22",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Bug Bounty \tReport Writing",
+        "start": 1060,
+        "end": 1086
+      },
+      {
+        "id": "resume-span-23",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Employment history",
+        "start": 1087,
+        "end": 1105
+      },
+      {
+        "id": "resume-span-24",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Traffic Control",
+        "start": 1106,
+        "end": 1121
+      },
+      {
+        "id": "resume-span-25",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Engineer, Thomas",
+        "start": 1122,
+        "end": 1138
+      },
+      {
+        "id": "resume-span-26",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Cavanagh Construction",
+        "start": 1139,
+        "end": 1160
+      },
+      {
+        "id": "resume-span-27",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "LTD, Aug 2022 - Present",
+        "start": 1161,
+        "end": 1184
+      },
+      {
+        "id": "resume-span-28",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Ashton, ON",
+        "start": 1185,
+        "end": 1195
+      },
+      {
+        "id": "resume-span-29",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Landscaper, Cataraqui",
+        "start": 1196,
+        "end": 1217
+      },
+      {
+        "id": "resume-span-30",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Cemetery and Funeral",
+        "start": 1218,
+        "end": 1238
+      },
+      {
+        "id": "resume-span-31",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Services, May 2021 - Jul",
+        "start": 1239,
+        "end": 1263
+      },
+      {
+        "id": "resume-span-32",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "2023",
+        "start": 1264,
+        "end": 1268
+      },
+      {
+        "id": "resume-span-33",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Kingston, Ontario",
+        "start": 1269,
+        "end": 1286
+      },
+      {
+        "id": "resume-span-34",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Directs traffic flow to ensure safety and efficiency, minimizing delays and disruptions.",
+        "start": 1287,
+        "end": 1375
+      },
+      {
+        "id": "resume-span-35",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Collaborates with construction teams to implement effective traffic control plans.",
+        "start": 1376,
+        "end": 1458
+      },
+      {
+        "id": "resume-span-36",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Monitors and adjusts traffic signals, improving travel times and reducing congestion.",
+        "start": 1459,
+        "end": 1544
+      },
+      {
+        "id": "resume-span-37",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Analyzes traffic patterns to identify and resolve bottlenecks, enhancing road safety.",
+        "start": 1545,
+        "end": 1630
+      },
+      {
+        "id": "resume-span-38",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Evaluated traffic data to develop targeted strategies, leading to measurable improvements",
+        "start": 1631,
+        "end": 1720
+      },
+      {
+        "id": "resume-span-39",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "in traffic flow and enhanced safety standards.",
+        "start": 1721,
+        "end": 1767
+      },
+      {
+        "id": "resume-span-40",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Fostered strong communication with construction teams, ensuring seamless",
+        "start": 1768,
+        "end": 1840
+      },
+      {
+        "id": "resume-span-41",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "implementation of traffic control measures and promoting team cohesion.",
+        "start": 1841,
+        "end": 1912
+      },
+      {
+        "id": "resume-span-42",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Leadership role providing safe and informative training with equipment operation,",
+        "start": 1913,
+        "end": 1994
+      },
+      {
+        "id": "resume-span-43",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "expectations and day to day operations with new hires and student workers.",
+        "start": 1995,
+        "end": 2069
+      },
+      {
+        "id": "resume-span-44",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Assisted in concrete foundation pouring",
+        "start": 2070,
+        "end": 2109
+      },
+      {
+        "id": "resume-span-45",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Assisted the mini-excavator operator in closing funteral services, filling holes, digging",
+        "start": 2110,
+        "end": 2199
+      },
+      {
+        "id": "resume-span-46",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "holes, cleaning area and putting headstone in place",
+        "start": 2200,
+        "end": 2251
+      },
+      {
+        "id": "resume-span-47",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Interpreted drawings of previously misplaced ground stones and worked effectively to",
+        "start": 2252,
+        "end": 2336
+      },
+      {
+        "id": "resume-span-48",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "rectify these mistakes",
+        "start": 2337,
+        "end": 2359
+      },
+      {
+        "id": "resume-span-49",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Operate varios equipment including 0-turn lawn mowers, manual lawn mowers, weed",
+        "start": 2360,
+        "end": 2439
+      },
+      {
+        "id": "resume-span-50",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "whackers, etc; Continuous maintenance of the 100 acre site throughout any weather",
+        "start": 2440,
+        "end": 2521
+      },
+      {
+        "id": "resume-span-51",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "conditions.",
+        "start": 2522,
+        "end": 2533
+      },
+      {
+        "id": "resume-span-52",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "-- 1 of 2 --",
+        "start": 2535,
+        "end": 2547
+      },
+      {
+        "id": "resume-span-53",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Employment history",
+        "start": 1087,
+        "end": 1105
+      },
+      {
+        "id": "resume-span-54",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Shipping and",
+        "start": 2568,
+        "end": 2580
+      },
+      {
+        "id": "resume-span-55",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Recieving, Haines,",
+        "start": 2581,
+        "end": 2599
+      },
+      {
+        "id": "resume-span-56",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Jones, and Cadbury,",
+        "start": 2600,
+        "end": 2619
+      },
+      {
+        "id": "resume-span-57",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Feb 2021 - May 2021",
+        "start": 2620,
+        "end": 2639
+      },
+      {
+        "id": "resume-span-58",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Kingston, Ontario",
+        "start": 1269,
+        "end": 1286
+      },
+      {
+        "id": "resume-span-59",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Links",
+        "start": 2658,
+        "end": 2663
+      },
+      {
+        "id": "resume-span-60",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Personal Website/blog -",
+        "start": 2664,
+        "end": 2687
+      },
+      {
+        "id": "resume-span-61",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "https://dtrh.net",
+        "start": 2688,
+        "end": 2704
+      },
+      {
+        "id": "resume-span-62",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "GitHub Public Code Repo -",
+        "start": 2705,
+        "end": 2730
+      },
+      {
+        "id": "resume-span-63",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "https://github.com/DTRHne",
+        "start": 2731,
+        "end": 2756
+      },
+      {
+        "id": "resume-span-64",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "t",
+        "start": 33,
+        "end": 34
+      },
+      {
+        "id": "resume-span-65",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Guitar Pro Downloader -",
+        "start": 2759,
+        "end": 2782
+      },
+      {
+        "id": "resume-span-66",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Https://gpdownloader.com",
+        "start": 2783,
+        "end": 2807
+      },
+      {
+        "id": "resume-span-67",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Fret Magic Guitar Trainer -",
+        "start": 2808,
+        "end": 2835
+      },
+      {
+        "id": "resume-span-68",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "https://fretmagic.gpdownloa",
+        "start": 2836,
+        "end": 2863
+      },
+      {
+        "id": "resume-span-69",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "der.com",
+        "start": 2800,
+        "end": 2807
+      },
+      {
+        "id": "resume-span-70",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Burn Me - Self Destructing /",
+        "start": 2872,
+        "end": 2900
+      },
+      {
+        "id": "resume-span-71",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Secure Notes -",
+        "start": 2901,
+        "end": 2915
+      },
+      {
+        "id": "resume-span-72",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "https://8urn.me",
+        "start": 2916,
+        "end": 2931
+      },
+      {
+        "id": "resume-span-73",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Additional information",
+        "start": 2932,
+        "end": 2954
+      },
+      {
+        "id": "resume-span-74",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Certifications \t• CompTIA A+ Core 1",
+        "start": 2955,
+        "end": 2990
+      },
+      {
+        "id": "resume-span-75",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "• CompTIA A+ Core 2",
+        "start": 2991,
+        "end": 3010
+      },
+      {
+        "id": "resume-span-76",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "• ISC2 Cybersecurity Certification",
+        "start": 3011,
+        "end": 3045
+      },
+      {
+        "id": "resume-span-77",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "• First Aid + CPR-C",
+        "start": 3046,
+        "end": 3065
+      },
+      {
+        "id": "resume-span-78",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Obtained forklift license for typical warehouse duties including shipping, recieving,",
+        "start": 3066,
+        "end": 3151
+      },
+      {
+        "id": "resume-span-79",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "sorting, and counting inventory sold to various companies such as Walmart.",
+        "start": 3152,
+        "end": 3226
+      },
+      {
+        "id": "resume-span-80",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Utilized computer system to effectively prioritize orders based on their expected shipping",
+        "start": 3227,
+        "end": 3317
+      },
+      {
+        "id": "resume-span-81",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "date.",
+        "start": 3318,
+        "end": 3323
+      },
+      {
+        "id": "resume-span-82",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Used scanning guns to maintain proper inventory counts whenever shipping/recieving",
+        "start": 3324,
+        "end": 3406
+      },
+      {
+        "id": "resume-span-83",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "While picking and recieving, carefully ensured product is taken from or brought to the",
+        "start": 3407,
+        "end": 3493
+      },
+      {
+        "id": "resume-span-84",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "correct location in the warehouse.",
+        "start": 3494,
+        "end": 3528
+      },
+      {
+        "id": "resume-span-85",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "Precise staging of shipments.",
+        "start": 3529,
+        "end": 3558
+      },
+      {
+        "id": "resume-span-86",
+        "source": "resume",
+        "section": null,
+        "page": null,
+        "text": "-- 2 of 2 --",
+        "start": 3560,
+        "end": 3572
+      }
+    ]
+  },
+  "matrix": [
+    {
+      "id": "req-1",
+      "requirement": "Position Information",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 5,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-73",
+          "quote": "Additional information"
+        }
+      ],
+      "evidenceGrade": "Weakly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 2,
+      "maximumScore": 5,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-2",
+      "requirement": "Posting Number: \tROM26-216E",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 5,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 5,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-3",
+      "requirement": "Title: \tDirector, Transformation and Risk Projects (RFT 1.0 FTE)",
+      "category": "Leadership",
+      "mandatory": false,
+      "weight": 5,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-6",
+          "quote": "various technical domains, I have built a portfolio of personal projects, contributed to my blog, and"
+        }
+      ],
+      "evidenceGrade": "Weakly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 2,
+      "maximumScore": 5,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-4",
+      "requirement": "Position Status: \tRegular Full-time",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 5,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 5,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-5",
+      "requirement": "Job Schedule: \tDays",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-6",
+      "requirement": "Department: \tTransformation & Risk",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-7",
+      "requirement": "Union: \tNon-union",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-8",
+      "requirement": "Site: \tRoyal Ottawa Mental Health Centre",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-50",
+          "quote": "whackers, etc; Continuous maintenance of the 100 acre site throughout any weather"
+        }
+      ],
+      "evidenceGrade": "Weakly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 1,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-9",
+      "requirement": "Level of Police Check: \tCriminal Record Check",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-10",
+      "requirement": "Number of Vacancies: \t1",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-11",
+      "requirement": "About The Royal",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-12",
+      "requirement": "As one of Canada’s foremost mental health care and academic health science centres, The Royal has a clear purpose: to get more people living with mental illness into recovery faster. This is at the core of everything we do and it is driven by the passion, focus and dedication of our employees. Every day, the work that we do transforms the lives of people with mental illness through specialized mental healthcare, advocacy, research and education.",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-1",
+          "quote": "Kevin Swain 1169 March Road, Kanata, Canada"
+        }
+      ],
+      "evidenceGrade": "Strongly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 3,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-13",
+      "requirement": "About the Program",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-7",
+          "quote": "actively participated in bug bounty programs. My commitment to continuous learning is demonstrated"
+        }
+      ],
+      "evidenceGrade": "Weakly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 1,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-14",
+      "requirement": "Reporting to the Chief Operating Officer, the Director, Transformation and Risk Management provides strategic leadership for enterprise transformation, organizational planning, risk management, compliance, emergency preparedness, and corporate initiatives across The Royal.",
+      "category": "Leadership",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-5",
+          "quote": "systems administration, and infrastructure maintenance. Through hands-on exploration across"
+        }
+      ],
+      "evidenceGrade": "Strongly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 3,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-15",
+      "requirement": "Key Responsibilities",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-16",
+      "requirement": "Strategic Planning & Organizational Transformation",
+      "category": "Core requirement",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-17",
+      "requirement": "Lead enterprise strategic planning, organizational performance, and transformation initiatives aligned with the hospital's strategic plan.",
+      "category": "Leadership",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-38",
+          "quote": "Evaluated traffic data to develop targeted strategies, leading to measurable improvements"
+        }
+      ],
+      "evidenceGrade": "Weakly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 1,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-18",
+      "requirement": "Advise senior leadership using data, stakeholder input, and industry insights to support strategic decision-making.",
+      "category": "Leadership",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-8",
+          "quote": "by earning industry-recognized certifications, including CompTIA A+, Network+, and ISC²"
+        }
+      ],
+      "evidenceGrade": "Strongly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 3,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-19",
+      "requirement": "Champion change management, innovation, continuous improvement, and organizational learning.",
+      "category": "Leadership",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-7",
+          "quote": "actively participated in bug bounty programs. My commitment to continuous learning is demonstrated"
+        }
+      ],
+      "evidenceGrade": "Strongly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 3,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-20",
+      "requirement": "Build partnerships with healthcare, government, academic, and community stakeholders.",
+      "category": "Operations",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [],
+      "evidenceGrade": "Absent",
+      "transferability": "No defensible transfer claim can be made from the supplied resume.",
+      "gapOrAmbiguity": "The supplied resume does not establish this criterion.",
+      "earnedScore": 0,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-21",
+      "requirement": "Prepare strategic recommendations and reports for the Executive Leadership Team, Board Committees and Board of Directors.",
+      "category": "Leadership",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-42",
+          "quote": "Leadership role providing safe and informative training with equipment operation,"
+        }
+      ],
+      "evidenceGrade": "Weakly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 1,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-22",
+      "requirement": "Risk Management Leadership",
+      "category": "Leadership",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-42",
+          "quote": "Leadership role providing safe and informative training with equipment operation,"
+        }
+      ],
+      "evidenceGrade": "Weakly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 1,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-23",
+      "requirement": "Lead and continuously improve the Enterprise Risk Management framework.",
+      "category": "Leadership",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-38",
+          "quote": "Evaluated traffic data to develop targeted strategies, leading to measurable improvements"
+        }
+      ],
+      "evidenceGrade": "Strongly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 3,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    },
+    {
+      "id": "req-24",
+      "requirement": "Oversee risk identification, assessment, mitigation, and reporting across clinical, operational, financial, labour relations, and technology domains.",
+      "category": "Operations",
+      "mandatory": false,
+      "weight": 4,
+      "resumeEvidence": [
+        {
+          "sourceSpanId": "resume-span-5",
+          "quote": "systems administration, and infrastructure maintenance. Through hands-on exploration across"
+        }
+      ],
+      "evidenceGrade": "Weakly implied",
+      "transferability": "Adjacent evidence may transfer, but direct ownership is not established.",
+      "gapOrAmbiguity": "Scope, recency, or direct ownership requires interview clarification.",
+      "earnedScore": 1,
+      "maximumScore": 4,
+      "interviewImplication": "Prepare a bounded process answer and do not overclaim."
+    }
+  ],
+  "score": 25,
+  "assessment": "# Resume Fit Assessment\n\n## Overall Fit\n\n- **Total score:** 25/100\n- **Overall match:** Limited based on supplied evidence\n- **Mandatory requirements:** None identified as mandatory in the matrix; therefore, no mandatory-requirement gating issue is present.\n- **Evidence pattern:** Most evidence is absent or only weakly implied. Even where evidence is graded strongly implied, the matrix states that direct ownership, scope, and recency require clarification.\n\n## Strongest Evidence Areas\n\n| Requirement area | Evidence assessment | Score |\n|---|---|---:|\n| Organizational purpose and mental-health-related context | Strongly implied by the supplied resume evidence, although the cited evidence does not establish direct ownership | 3/4 |\n| Strategic leadership for transformation, risk management, compliance, and related initiatives | Strongly implied through systems administration and infrastructure maintenance evidence; direct enterprise leadership is not established | 3/4 |\n| Advising senior leadership using data and stakeholder input | Strongly implied through industry-recognized certifications; direct advisory ownership is not established | 3/4 |\n| Change management, innovation, continuous improvement, and organizational learning | Strongly implied through participation in bug bounty programs and a stated commitment to continuous learning | 3/4 |\n| Enterprise risk management framework improvement | Strongly implied through evaluating traffic data and developing targeted strategies | 3/4 |\n\n## Partial or Weak Evidence Areas\n\nThe matrix provides only weakly implied evidence for:\n\n- Position information and role alignment\n- Director-level transformation and risk project alignment\n- Site-related familiarity\n- Leading strategic planning and transformation initiatives\n- Preparing recommendations or reports for senior governance bodies\n- Risk management leadership\n- Risk identification, assessment, mitigation, and reporting across multiple organizational domains\n\nThese areas require clarification of **scope, recency, and direct ownership**.\n\n## Major Evidence Gaps\n\nThe supplied resume evidence does not establish:\n\n- The posting number, employment status, schedule, department, union status, or police-check requirement\n- The number of vacancies\n- Direct alignment with The Royal’s program or institutional context\n- Strategic planning and organizational transformation ownership\n- Partnerships with healthcare, government, academic, or community stakeholders\n- Preparation of reports or recommendations for the Executive Leadership Team, Board Committees, or Board of Directors\n- Oversight of risk across clinical, operational, financial, labour-relations, and technology domains\n\n## Interview Priorities\n\nThe matrix consistently recommends preparing **bounded process answers and avoiding overclaiming**. Clarify:\n\n1. The actual scope and ownership of transformation, strategic planning, and risk-related work.\n2. Whether experience extended beyond technical or operational activities into enterprise-level leadership.\n3. Examples of advising senior leaders or governance groups.\n4. Experience with risk identification, assessment, mitigation, monitoring, and reporting.\n5. Experience working with healthcare, government, academic, or community stakeholders.\n6. The recency and scale of the evidence cited for continuous improvement, data analysis, and leadership.\n\n## Assessment Conclusion\n\nBased solely on the supplied evidence matrix, the resume demonstrates some transferable indicators in technical operations, data-informed improvement, continuous learning, and possible risk-related activities. However, the evidence does not directly establish the enterprise leadership, healthcare-sector partnerships, board-level reporting, strategic transformation ownership, or comprehensive risk-management scope expected by the position. The candidate should use a carefully bounded interview strategy focused on clarifying transferable experience without asserting unsupported ownership.",
+  "studyGuide": "# Interview Study Guide  \n**Role:** Director, Transformation and Risk Projects  \n**Evidence basis:** Supplied evidence matrix only\n\n## 1. Evidence snapshot\n\nThe matrix indicates:\n\n- **25 points earned out of 100 available** across the listed requirements.\n- Most evidence is classified as **absent** or **weakly implied**.\n- Stronger evidence is present for:\n  - Using data and stakeholder input to support decisions.\n  - Continuous learning and improvement.\n  - Some exposure to systems administration and infrastructure maintenance.\n  - Risk-related activity, although direct enterprise ownership is not established.\n- The central interview objective is to **clarify scope, ownership, recency, and transferability without overclaiming**.\n\n### Potentially relevant evidence\n\n| Evidence area | Supplied evidence | Matrix assessment |\n|---|---|---|\n| Data-informed improvement | “Evaluated traffic data to develop targeted strategies, leading to measurable improvements” — `resume-span-38` | Strongly implied for enterprise risk framework improvement; weakly implied for strategic transformation |\n| Decision support | Certifications including “CompTIA A+, Network+, and ISC²” — `resume-span-8` | Strongly implied for advising senior leadership using data, stakeholder input, and industry insights |\n| Continuous learning | “actively participated in bug bounty programs. My commitment to continuous learning is demonstrated” — `resume-span-7` | Strongly implied for change, innovation, continuous improvement, and organizational learning |\n| Technical operations | “systems administration, and infrastructure maintenance” — `resume-span-5` | Strongly implied for the broad leadership context; weakly implied for cross-domain risk oversight |\n| Safety and leadership | “Leadership role providing safe and informative training with equipment operation” — `resume-span-42` | Weakly implied for board reporting and risk-management leadership |\n| Project or technical breadth | “various technical domains… portfolio of personal projects… contributed to my blog” — `resume-span-6` | Weakly implied for the director-level role |\n| Site-related activity | “Continuous maintenance of the 100 acre site throughout any weather” — `resume-span-50` | Weakly implied for the Royal Ottawa Mental Health Centre site |\n| General location information | “Kevin Swain 1169 March Road, Kanata, Canada” — `resume-span-1` | Strongly implied against the organization-purpose requirement, but not direct evidence of organizational alignment |\n\n---\n\n## 2. Core positioning statement\n\nUse a bounded introduction such as:\n\n> “My background includes work across various technical domains, systems administration, infrastructure maintenance, data-informed improvement, safety-focused training, and continuous learning. I would like to clarify how those experiences could transfer to enterprise transformation, risk management, and organizational planning. I would not characterize my background as direct ownership of all the responsibilities listed without first discussing the scope and expectations of the role.”\n\nThis reflects the matrix without claiming:\n\n- Direct ownership of enterprise transformation.\n- Direct ownership of an Enterprise Risk Management framework.\n- Healthcare, government, academic, or community partnerships.\n- Board-level reporting.\n- Clinical, financial, labour-relations, or hospital-wide risk leadership.\n\n---\n\n## 3. Priority interview themes\n\n## A. Strategic planning and organizational transformation\n\n### Requirement focus\n\nThe role calls for leadership of:\n\n- Enterprise strategic planning.\n- Organizational performance.\n- Transformation initiatives.\n- Alignment with the hospital’s strategic plan.\n- Change management, innovation, continuous improvement, and organizational learning.\n\n### Relevant evidence\n\n- Data was evaluated to develop targeted strategies and produce measurable improvements — `resume-span-38`.\n- Continuous learning is demonstrated through participation in bug bounty programs — `resume-span-7`.\n- A portfolio of personal projects and work across technical domains is noted — `resume-span-6`.\n\n### Likely questions\n\n1. **Describe a transformation or improvement initiative you led.**\n2. **How did you determine what needed to change?**\n3. **What data did you use to support your approach?**\n4. **How did you measure whether the change was successful?**\n5. **How did you obtain stakeholder input?**\n6. **What was your direct responsibility, and what was handled by others?**\n7. **How have you supported continuous improvement or organizational learning?**\n\n### Bounded answer approach\n\nFocus on:\n\n1. The situation or process examined.\n2. The data evaluated.\n3. The strategy developed.\n4. The improvement observed.\n5. Your specific contribution.\n6. What remains different between that experience and enterprise hospital transformation.\n\nAvoid describing the traffic-data example as hospital-wide transformation unless the interviewer establishes that connection.\n\n---\n\n## B. Strategic advice and executive decision support\n\n### Requirement focus\n\nThe role requires advising senior leadership using:\n\n- Data.\n- Stakeholder input.\n- Industry insights.\n- Strategic recommendations and reports for executive and board audiences.\n\n### Relevant evidence\n\n- The matrix connects certifications including CompTIA A+, Network+, and ISC² with the ability to advise senior leadership — `resume-span-8`.\n- The matrix identifies only weakly implied evidence for preparing recommendations and reports for executive leadership and boards — `resume-span-42`.\n\n### Likely questions\n\n1. **Tell us about a decision for which you provided analysis or advice.**\n2. **What information did you use?**\n3. **How did you incorporate stakeholder perspectives?**\n4. **How did you communicate risks, options, or recommendations?**\n5. **Have you prepared material for executive leadership, board committees, or a board of directors?**\n6. **What was your level of ownership over the final recommendation?**\n7. **How would you distinguish technical advice from enterprise-level strategic advice?**\n\n### Bounded answer approach\n\nBe precise about whether you:\n\n- Gathered information.\n- Analyzed information.\n- Developed options.\n- Made a recommendation.\n- Delivered the recommendation.\n- Supported implementation.\n- Owned the final decision.\n\nIf you have not prepared board-level materials, say so directly and describe the closest comparable activity without presenting it as equivalent.\n\n---\n\n## C. Risk management leadership\n\n### Requirement focus\n\nThe role calls for leadership of:\n\n- The Enterprise Risk Management framework.\n- Risk identification.\n- Risk assessment.\n- Risk mitigation.\n- Risk reporting.\n- Risks across clinical, operational, financial, labour-relations, and technology domains.\n\n### Relevant evidence\n\n- Data analysis and targeted strategies are identified as strong implied evidence for continuously improving an Enterprise Risk Management framework — `resume-span-38`.\n- Systems administration and infrastructure maintenance provide weakly implied evidence for cross-domain risk oversight — `resume-span-5`.\n- Safety-focused training and equipment operation provide weakly implied evidence for risk-management leadership — `resume-span-42`.\n\n### Likely questions\n\n1. **Describe a risk you identified, assessed, and mitigated.**\n2. **What framework or process did you use?**\n3. **How did you prioritize risks?**\n4. **How did you report risk to decision-makers?**\n5. **What risks did you personally own?**\n6. **How did you handle competing operational priorities?**\n7. **Which types of risk have you worked with: technology, operational, financial, clinical, or labour-relations?**\n8. **Have you continuously improved an enterprise risk framework?**\n9. **How did you determine whether a mitigation was effective?**\n\n### Bounded answer approach\n\nSeparate:\n\n- **Direct experience** from **adjacent technical or safety experience**.\n- **Individual risk management** from **enterprise risk management**.\n- **Technology risk** from **clinical, financial, labour-relations, or operational risk**.\n- **Participation** from **framework ownership**.\n\nA defensible formulation would be:\n\n> “The closest evidence in my background is evaluating data to develop targeted strategies and working in systems administration and infrastructure maintenance. I would need to clarify the organization’s risk framework and expectations before characterizing that experience as direct ownership of enterprise risk management.”\n\n---\n\n## D. Stakeholder partnerships\n\n### Requirement focus\n\nThe role requires partnerships with:\n\n- Healthcare stakeholders.\n- Government stakeholders.\n- Academic stakeholders.\n- Community stakeholders.\n\n### Evidence status\n\nThis requirement is marked **Absent**. The matrix does not establish direct experience with these stakeholder groups.\n\n### Likely questions\n\n1. **Describe a partnership you built with a stakeholder group.**\n2. **What were the stakeholder’s objectives?**\n3. **How did you resolve competing priorities?**\n4. **How did you maintain the relationship?**\n5. **Have you worked directly with healthcare, government, academic, or community organizations?**\n6. **What role did you personally play?**\n\n### Bounded answer approach\n\nDo not imply that technical, site, or training experience involved healthcare, government, academic, or community partnerships unless the interviewer provides facts that establish this.\n\n---\n\n## E. Change, innovation, and learning\n\n### Requirement focus\n\nThe role calls for championing:\n\n- Change management.\n- Innovation.\n- Continuous improvement.\n- Organizational learning.\n\n### Relevant evidence\n\n- Participation in bug bounty programs.\n- A stated commitment to continuous learning.\n- Personal projects and work across various technical domains — `resume-span-7`, `resume-span-6`.\n\n### Likely questions\n\n1. **How have you introduced or supported a new approach?**\n2. **What did you learn from experimentation or setbacks?**\n3. **How did you help others adopt a change?**\n4. **How did you distinguish useful innovation from unnecessary change?**\n5. **How have you shared knowledge with others?**\n6. **What did your personal projects or bug bounty participation teach you that transfers to organizational improvement?**\n\n### Bounded answer approach\n\nConnect the learning evidence to habits such as investigation, experimentation, and skill development. Avoid claiming responsibility for organizational change management unless you can identify the relevant scope and ownership.\n\n---\n\n## F. Site and organizational context\n\n### Information in the matrix\n\nThe posting identifies:\n\n- **Department:** Transformation & Risk.\n- **Site:** Royal Ottawa Mental Health Centre.\n- **Status:** Regular full-time.\n- **Schedule:** Days.\n- **Union:** Non-union.\n- **Police check:** Criminal Record Check.\n- **Vacancies:** 1.\n- **Reporting relationship:** Chief Operating Officer.\n- **Organizational purpose:** Helping more people living with mental illness into recovery faster through specialized mental healthcare, advocacy, research, and education.\n\n### Evidence status\n\nThe matrix does not establish the candidate’s:\n\n- Understanding of The Royal.\n- Understanding of the program.\n- Direct mental-healthcare experience.\n- Direct hospital experience.\n- Ability to satisfy the Criminal Record Check.\n- Availability for the schedule or position status.\n- Eligibility or fit for the union classification.\n- Interest in the specific site or role.\n\n### Likely clarification questions\n\nBe prepared to answer accurately:\n\n1. **What interests you about this role and The Royal?**\n2. **What is your understanding of the Transformation & Risk department?**\n3. **What experience transfers to a mental-healthcare or academic health-science environment?**\n4. **Are you able to meet the stated schedule and employment conditions?**\n5. **Are you able to complete the stated Criminal Record Check?**\n6. **What would you need to learn first in order to contribute effectively?**\n\nDo not state that you have healthcare or mental-healthcare experience unless supported by evidence outside this matrix; no such evidence is supplied here.\n\n---\n\n## 4. Evidence-to-question drill sheet\n\nFor each evidence item, prepare a precise explanation of:\n\n- **Context:** What setting or activity was involved?\n- **Action:** What did you personally do?\n- **Ownership:** What did you own versus support?\n- **Scope:** Individual, project, department, or enterprise?\n- **Stakeholders:** Who was involved?\n- **Result:** What changed or improved?\n- **Transfer:** Why might it be relevant to transformation or risk?\n- **Limitation:** What part does not directly match the role?\n\n### Drill 1: Data-informed strategy\n\n**Evidence:** “Evaluated traffic data to develop targeted strategies, leading to measurable improvements” — `resume-span-38`.\n\nPrepare to explain:\n\n- What traffic data was evaluated.\n- What “targeted strategies” means in that context.\n- What improvement was measured.\n- Whether you led the work or contributed to it.\n- How the approach could transfer to risk or performance management.\n\n### Drill 2: Technical operations\n\n**Evidence:** “systems administration, and infrastructure maintenance” — `resume-span-5`.\n\nPrepare to explain:\n\n- Which responsibilities were personally performed.\n- What risks or operational issues were addressed.\n- Whether the work involved planning, mitigation, reporting, or escalation.\n- Why this is adjacent to, rather than necessarily equivalent to, enterprise risk leadership.\n\n### Drill 3: Continuous learning\n\n**Evidence:** “actively participated in bug bounty programs. My commitment to continuous learning is demonstrated” — `resume-span-7`.\n\nPrepare to explain:\n\n- What participation involved.\n- How findings or lessons were applied.\n- Whether knowledge was shared with others.\n- How this demonstrates learning, innovation, or improvement without overstating organizational leadership.\n\n### Drill 4: Safety-focused leadership\n\n**Evidence:** “Leadership role providing safe and informative training with equipment operation” — `resume-span-42`.\n\nPrepare to explain:\n\n- What leadership responsibility was involved.\n- What safety expectations were communicated.\n- How risks were identified or controlled.\n- Whether the experience involved formal risk reporting or only operational safety.\n\n### Drill 5: Technical breadth and personal projects\n\n**Evidence:** “various technical domains… portfolio of personal projects… contributed to my blog” — `resume-span-6`.\n\nPrepare to explain:\n\n- The nature and scope of the projects.\n- How priorities were selected.\n- What was learned.\n- Whether the work involved collaboration, delivery, or measurable outcomes.\n- How it supports the role without presenting personal projects as enterprise transformation leadership.\n\n---\n\n## 5. Questions to ask the interviewer\n\nThese questions address gaps and ambiguities identified in the matrix:\n\n1. **What is the current scope of the transformation portfolio?**\n2. **Which responsibilities are most urgent for the Director during the first period in the role?**\n3. **How is the Enterprise Risk Management framework currently structured?**\n4. **What risk domains fall within this position’s direct accountability?**\n5. **How does the Director work with the Chief Operating Officer and Executive Leadership Team?**\n6. **What types of recommendations or reports are expected for board committees and the Board of Directors?**\n7. **Which internal and external stakeholder relationships are most important?**\n8. **How is organizational performance measured?**\n9. **What change-management or continuous-improvement initiatives are currently underway?**\n10. **What distinguishes this position’s transformation responsibilities from its risk-management responsibilities?**\n\n---\n\n## 6. Guardrails for the interview\n\n### Do\n\n- State exactly what you did.\n- Clarify the scope of each example.\n- Explain the difference between technical, operational, and enterprise experience.\n- Use the data-informed strategy example to discuss analysis and improvement.\n- Use the continuous-learning evidence to discuss adaptability and learning.\n- Acknowledge gaps directly.\n- Ask for clarification where the posting’s expectations are unclear.\n\n### Do not\n\n- Claim direct ownership of the Enterprise Risk Management framework.\n- Claim hospital-wide transformation leadership.\n- Claim board reporting experience based only on the training evidence.\n- Claim partnerships with healthcare, government, academic, or community stakeholders.\n- Claim direct experience across clinical, financial, or labour-relations risk domains.\n- Treat the supplied site-maintenance evidence as proof of experience at the Royal Ottawa Mental Health Centre.\n- Treat certifications or technical experience as proof of executive or board-level leadership.\n- Invent dates, metrics, credentials, job titles, reporting relationships, or outcomes.\n\n## 7. Closing statement\n\n> “The strongest transferable themes I can substantiate are data-informed improvement, technical operations, safety-focused leadership, and continuous learning. I recognize that the matrix does not establish direct ownership of hospital-wide transformation, enterprise risk management, board reporting, or healthcare stakeholder partnerships. I would welcome the opportunity to discuss the scope of those responsibilities and where my experience could contribute.”",
+  "audit": {
+    "status": "passed",
+    "critical": [],
+    "warnings": [
+      "Metric 25 appears in generated text without a matching evidence quote.",
+      "Metric 216 appears in generated text without a matching evidence quote.",
+      "Metric 2 appears in generated text without a matching evidence quote.",
+      "Metric 5 appears in generated text without a matching evidence quote.",
+      "Metric 2 appears in generated text without a matching evidence quote.",
+      "Metric 216 appears in generated text without a matching evidence quote.",
+      "Metric 5 appears in generated text without a matching evidence quote.",
+      "Metric 1.0 appears in generated text without a matching evidence quote.",
+      "Metric 5 appears in generated text without a matching evidence quote.",
+      "Metric 2 appears in generated text without a matching evidence quote.",
+      "Metric 5 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 3.1 appears in generated text without a matching evidence quote.",
+      "Metric 2 appears in generated text without a matching evidence quote.",
+      "Metric 5 appears in generated text without a matching evidence quote.",
+      "Metric 3.2 appears in generated text without a matching evidence quote.",
+      "Metric 2 appears in generated text without a matching evidence quote.",
+      "Metric 216 appears in generated text without a matching evidence quote.",
+      "Metric 5 appears in generated text without a matching evidence quote.",
+      "Metric 3.3 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 1.0 appears in generated text without a matching evidence quote.",
+      "Metric 2 appears in generated text without a matching evidence quote.",
+      "Metric 5 appears in generated text without a matching evidence quote.",
+      "Metric 3.4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 5 appears in generated text without a matching evidence quote.",
+      "Metric 3.5 appears in generated text without a matching evidence quote.",
+      "Metric 5 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.6 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.7 appears in generated text without a matching evidence quote.",
+      "Metric 7 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.8 appears in generated text without a matching evidence quote.",
+      "Metric 8 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.9 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.10 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.11 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.12 appears in generated text without a matching evidence quote.",
+      "Metric 12 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.13 appears in generated text without a matching evidence quote.",
+      "Metric 13 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.14 appears in generated text without a matching evidence quote.",
+      "Metric 14 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.15 appears in generated text without a matching evidence quote.",
+      "Metric 15 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.16 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.17 appears in generated text without a matching evidence quote.",
+      "Metric 17 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.18 appears in generated text without a matching evidence quote.",
+      "Metric 18 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.19 appears in generated text without a matching evidence quote.",
+      "Metric 19 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.20 appears in generated text without a matching evidence quote.",
+      "Metric 20 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.21 appears in generated text without a matching evidence quote.",
+      "Metric 21 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.22 appears in generated text without a matching evidence quote.",
+      "Metric 22 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.23 appears in generated text without a matching evidence quote.",
+      "Metric 23 appears in generated text without a matching evidence quote.",
+      "Metric 3 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 3.24 appears in generated text without a matching evidence quote.",
+      "Metric 24 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 4 appears in generated text without a matching evidence quote.",
+      "Metric 5 appears in generated text without a matching evidence quote.",
+      "Metric 216 appears in generated text without a matching evidence quote.",
+      "Metric 7 appears in generated text without a matching evidence quote.",
+      "Metric 8 appears in generated text without a matching evidence quote.",
+      "Metric 1.0 appears in generated text without a matching evidence quote.",
+      "Metric 60 appears in generated text without a matching evidence quote.",
+      "Metric 90 appears in generated text without a matching evidence quote.",
+      "Metric 216 appears in generated text without a matching evidence quote.",
+      "Metric 216 appears in generated text without a matching evidence quote.",
+      "Metric 1.0 appears in generated text without a matching evidence quote.",
+      "Metric 216 appears in generated text without a matching evidence quote."
+    ]
+  },
+  "provider": "OpenAI",
+  "model": "gpt-5.6-luna",
+  "createdAt": 1788442014386
+}

@@ -3,7 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { extractDocument, extractDocumentInput } from "./documentExtraction";
-import { providerConfigSchema, validateProviderConfiguration, generateProviderText } from "./providerAdapters";
+import { providerConfigSchema, testProviderConnection, generateProviderText } from "./providerAdapters";
 import { z } from "zod";
 
 export const appRouter = router({
@@ -24,7 +24,7 @@ export const appRouter = router({
     extract: publicProcedure.input(extractDocumentInput).mutation(({ input }) => extractDocument(input)),
   }),
   providers: router({
-    validate: publicProcedure.input(providerConfigSchema).mutation(({ input }) => validateProviderConfiguration(input)),
+    validate: publicProcedure.input(providerConfigSchema).mutation(({ input }) => testProviderConnection(input)),
     generate: publicProcedure.input(providerConfigSchema.extend({ system: z.string().min(1), user: z.string().min(1) })).mutation(({ input }) => generateProviderText(input, input.system, input.user)),
   }),
 

@@ -15,6 +15,16 @@ export { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 export const startLogin = () => {
   const oauthPortalUrl = import.meta.env.VITE_OAUTH_PORTAL_URL;
   const appId = import.meta.env.VITE_APP_ID;
+
+  // Dev bypass: OAuth is disabled when VITE_OAUTH_PORTAL_URL is not set.
+  // The server already returns a mock user, so no redirect is needed.
+  if (!oauthPortalUrl) {
+    console.warn(
+      "[Auth] OAuth is disabled in dev mode. Set VITE_OAUTH_PORTAL_URL to enable real login."
+    );
+    return;
+  }
+
   const redirectUri = `${window.location.origin}/api/oauth/callback`;
 
   const nonce = crypto.randomUUID();
