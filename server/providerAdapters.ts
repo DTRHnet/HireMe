@@ -42,6 +42,8 @@ export function normalizeEndpoint(provider: ProviderId, customEndpoint?: string)
     return url;
   }
 
+  if (url.endsWith("/responses")) return url;
+
   if (!url.endsWith("/chat/completions")) {
     if (url.endsWith("/v1")) return `${url}/chat/completions`;
     return `${url}/v1/chat/completions`;
@@ -65,7 +67,11 @@ export async function generateProviderText(config: ProviderConfig, system: strin
 
   const isAnthropic = config.provider === "anthropic";
   const modelLower = config.model.toLowerCase();
+  const isLuna = modelLower === "gpt-5.6-luna";
   const isOpenAI = config.provider === "openai" || modelLower.includes("gpt-5") || modelLower.startsWith("o1") || modelLower.startsWith("o3");
+  const endpoint = isLuna && check.endpoint.endsWith("/chat/completions")
+    ? check.endpoint.replace(/\/chat\/completions$/, "/responses")
+    : check.endpoint;
 
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (isAnthropic) {
@@ -83,6 +89,14 @@ export async function generateProviderText(config: ProviderConfig, system: strin
   let combineSystemWithUser = false;
 
   const buildBody = () => {
+    if (isLuna) {
+      return {
+        model: config.model,
+        input: `[SYSTEM INSTRUCTION]\n${system}\n\n[USER INPUT]\n${user}`,
+        reasoning: { effort: "medium" },
+        max_output_tokens: 8192,
+      };
+    }
     if (isAnthropic) {
       return {
         model: config.model,
@@ -125,7 +139,7 @@ export async function generateProviderText(config: ProviderConfig, system: strin
   // Retry loop: up to 3 attempts with adaptive parameter adjustment
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      response = await fetch(check.endpoint, {
+      response = await fetch(endpoint, {
         method: "POST",
         headers,
         body: JSON.stringify(buildBody()),
@@ -162,7 +176,7 @@ export async function generateProviderText(config: ProviderConfig, system: strin
 
       break;
     } catch (err: any) {
-      throw new Error(`Failed to reach endpoint (${check.endpoint}): ${err.message || String(err)}`);
+      throw new Error(`Failed to reach endpoint (${endpoint}): ${err.message || String(err)}`);
     }
   }
 
@@ -182,7 +196,12 @@ export async function generateProviderText(config: ProviderConfig, system: strin
 
   const data = (await response.json()) as any;
   let text = "";
-  if (isAnthropic) {
+  if (isLuna) {
+    text = data.output_text ?? data.output
+      ?.flatMap((item: any) => item.content ?? [])
+      ?.map((part: any) => part.text ?? "")
+      ?.join("") ?? "";
+  } else if (isAnthropic) {
     text = data.content?.map((part: any) => part.text ?? "").join("") ?? "";
   } else {
     text = data.choices?.[0]?.message?.content ?? data.content?.map((part: any) => part.text ?? "").join("") ?? "";

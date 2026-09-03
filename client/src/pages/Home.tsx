@@ -84,7 +84,7 @@ function providerIdForLabel(label: string): ProviderId {
 
 const modelOptions: Record<string, string[]> = {
   "Local deterministic": ["Evidence-first baseline"],
-  OpenAI: ["gpt-4o-mini", "gpt-4o", "gpt-5-mini"],
+  OpenAI: ["gpt-4o-mini", "gpt-4o", "gpt-5-mini", "gpt-5.6-luna"],
   Anthropic: ["claude-3-5-sonnet-20241022", "claude-3-7-sonnet-latest", "claude-3-5-haiku-20241022"],
   "Google Gemini": ["gemini-1.5-flash", "gemini-1.5-pro", "gemini-2.0-flash"],
   OpenRouter: ["meta-llama/llama-3.3-70b-instruct:free", "google/gemini-2.0-flash-exp:free", "qwen/qwen-2.5-72b-instruct"],
