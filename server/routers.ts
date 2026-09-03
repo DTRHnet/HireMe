@@ -1,0 +1,39 @@
+import { COOKIE_NAME } from "@shared/const";
+import { getSessionCookieOptions } from "./_core/cookies";
+import { systemRouter } from "./_core/systemRouter";
+import { publicProcedure, router } from "./_core/trpc";
+import { extractDocument, extractDocumentInput } from "./documentExtraction";
+import { providerConfigSchema, validateProviderConfiguration, generateProviderText } from "./providerAdapters";
+import { z } from "zod";
+
+export const appRouter = router({
+    // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
+  system: systemRouter,
+  auth: router({
+    me: publicProcedure.query(opts => opts.ctx.user),
+    logout: publicProcedure.mutation(({ ctx }) => {
+      const cookieOptions = getSessionCookieOptions(ctx.req);
+      ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 });
+      return {
+        success: true,
+      } as const;
+    }),
+  }),
+
+  documents: router({
+    extract: publicProcedure.input(extractDocumentInput).mutation(({ input }) => extractDocument(input)),
+  }),
+  providers: router({
+    validate: publicProcedure.input(providerConfigSchema).mutation(({ input }) => validateProviderConfiguration(input)),
+    generate: publicProcedure.input(providerConfigSchema.extend({ system: z.string().min(1), user: z.string().min(1) })).mutation(({ input }) => generateProviderText(input, input.system, input.user)),
+  }),
+
+  // TODO: add feature routers here, e.g.
+  // todo: router({
+  //   list: protectedProcedure.query(({ ctx }) =>
+  //     db.getUserTodos(ctx.user.id)
+  //   ),
+  // }),
+});
+
+export type AppRouter = typeof appRouter;
