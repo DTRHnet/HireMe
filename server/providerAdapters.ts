@@ -1,9 +1,10 @@
 import { z } from "zod";
 import type { ProviderId } from "../shared/hireme";
+import { ENV } from "./_core/env";
 
 export const providerConfigSchema = z.object({
-  provider: z.enum(["openai", "anthropic", "gemini", "openrouter", "ollama", "lmstudio", "compatible"]),
-  model: z.string().min(1).max(160),
+  provider: z.enum(["openai", "anthropic", "gemini", "openrouter", "ollama", "lmstudio", "compatible"]).default("openai"),
+  model: z.string().min(1).max(160).default("gpt-5.6-luna"),
   endpoint: z.string().url().optional(),
   apiKey: z.string().min(1).optional(),
   temperature: z.number().min(0).max(2).default(0.2),
@@ -55,7 +56,8 @@ export function validateProviderConfiguration(config: ProviderConfig) {
   const parsed = providerConfigSchema.parse(config);
   const endpoint = normalizeEndpoint(parsed.provider, parsed.endpoint);
   const local = parsed.provider === "ollama" || parsed.provider === "lmstudio";
-  if (!local && !parsed.apiKey) {
+  const hasApiKey = parsed.apiKey || (parsed.provider === "openai" && ENV.openaiApiKey);
+  if (!local && !hasApiKey) {
     return { ok: false as const, endpoint, local, error: `An API key is required for ${parsed.provider}.` };
   }
   return { ok: true as const, endpoint, local };
@@ -74,11 +76,12 @@ export async function generateProviderText(config: ProviderConfig, system: strin
     : check.endpoint;
 
   const headers: Record<string, string> = { "Content-Type": "application/json" };
+  const apiKey = config.apiKey || (config.provider === "openai" ? ENV.openaiApiKey : "");
   if (isAnthropic) {
-    if (config.apiKey) headers["x-api-key"] = config.apiKey;
+    if (apiKey) headers["x-api-key"] = apiKey;
     headers["anthropic-version"] = "2023-06-01";
-  } else if (config.apiKey) {
-    headers["Authorization"] = `Bearer ${config.apiKey}`;
+  } else if (apiKey) {
+    headers["Authorization"] = `Bearer ${apiKey}`;
   }
 
   // Pre-detect strict reasoning models
